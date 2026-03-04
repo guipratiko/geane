@@ -5,15 +5,22 @@
   var nav = document.querySelector('.nav');
 
   if (menuToggle && nav) {
+    function closeMenu() {
+      nav.classList.remove('is-open');
+      menuToggle.classList.remove('is-open');
+      menuToggle.setAttribute('aria-label', 'Abrir menu');
+      document.body.style.overflow = '';
+    }
+
     menuToggle.addEventListener('click', function () {
-      nav.classList.toggle('is-open');
-      menuToggle.setAttribute('aria-label', nav.classList.contains('is-open') ? 'Fechar menu' : 'Abrir menu');
+      var isOpen = nav.classList.toggle('is-open');
+      menuToggle.classList.toggle('is-open', isOpen);
+      menuToggle.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
+      document.body.style.overflow = isOpen ? 'hidden' : '';
     });
 
     nav.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', function () {
-        nav.classList.remove('is-open');
-      });
+      link.addEventListener('click', closeMenu);
     });
   }
 
