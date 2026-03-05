@@ -90,4 +90,40 @@
       observerReveal.observe(el);
     });
   }
+
+  /* Contagem regressiva 10 min – Valor promocional */
+  var countdownEl = document.getElementById('countdown');
+  if (countdownEl) {
+    var minEl = countdownEl.querySelector('.countdown-min');
+    var secEl = countdownEl.querySelector('.countdown-sec');
+    var storageKey = 'preco_countdown_end';
+    var durationMs = 10 * 60 * 1000; // 10 minutos
+    var endTime = parseInt(localStorage.getItem(storageKey), 10);
+    if (!endTime || endTime <= Date.now()) {
+      endTime = Date.now() + durationMs;
+      localStorage.setItem(storageKey, String(endTime));
+    }
+
+    function pad(n) {
+      return n < 10 ? '0' + n : String(n);
+    }
+
+    function tick() {
+      var now = Date.now();
+      var left = Math.max(0, Math.floor((endTime - now) / 1000));
+      if (left <= 0) {
+        minEl.textContent = '00';
+        secEl.textContent = '00';
+        clearInterval(timer);
+        return;
+      }
+      var m = Math.floor(left / 60);
+      var s = left % 60;
+      minEl.textContent = pad(m);
+      secEl.textContent = pad(s);
+    }
+
+    tick();
+    var timer = setInterval(tick, 1000);
+  }
 })();

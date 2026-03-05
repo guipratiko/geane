@@ -50,7 +50,22 @@ body {
   font-size: 1rem;
   line-height: 1.6;
   color: var(--dourado-claro);
-  background-color: var(--fundo);
+  /* Gradiente contínuo do hero ao footer (paleta escura) */
+  background: linear-gradient(
+    to bottom,
+    #111912 0%,
+    #151a12 12%,
+    #1e2218 22%,
+    #2A2F1F 35%,
+    #353826 48%,
+    #504C31 60%,
+    #5c5340 72%,
+    #766746 85%,
+    #6b5d48 92%,
+    #111912 100%
+  );
+  background-attachment: scroll;
+  min-height: 100vh;
 }
 
 h1, h2, h3 {
@@ -528,10 +543,17 @@ a.hero-cta.btn:hover {
 .section {
   padding: 4.5rem 0;
   position: relative;
+  background: transparent;
+  border-top: 1px solid rgba(218, 190, 155, 0.45);
 }
 
-.section:nth-child(even) {
-  background: linear-gradient(180deg, var(--oliva-escuro) 0%, rgba(42, 47, 31, 0.6) 100%);
+.section:first-of-type {
+  border-top: none;
+}
+
+/* Transparente para o gradiente do body aparecer */
+.section--alt {
+  background: transparent;
 }
 
 .section-badge {
@@ -708,8 +730,16 @@ a.hero-cta.btn:hover {
   margin: 0 0 1rem;
 }
 
+.modulo-intro-lead {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+  color: var(--dourado-claro);
+  opacity: 0.95;
+  line-height: 1.6;
+}
+
 .modulo-intro-cta {
-  margin: 1rem 0 0;
+  margin: 1rem 0 0.5rem;
   font-size: 0.95rem;
   color: var(--dourado-claro);
   opacity: 0.95;
@@ -930,6 +960,34 @@ a.hero-cta.btn:hover {
   color: var(--dourado-envelhecido);
 }
 
+.countdown-wrapper {
+  margin: 1rem 0 1.25rem;
+  text-align: center;
+}
+
+.countdown-label {
+  font-size: 0.9rem;
+  color: var(--dourado-claro);
+  margin: 0 0 0.5rem;
+}
+
+.countdown {
+  font-size: 1.75rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--dourado-envelhecido);
+  letter-spacing: 0.05em;
+}
+
+.countdown-sep {
+  margin: 0 0.1rem;
+  animation: countdownBlink 1s step-end infinite;
+}
+
+@keyframes countdownBlink {
+  50% { opacity: 0.3; }
+}
+
 .preco-garantia {
   font-size: 0.85rem;
   color: var(--dourado-envelhecido);
@@ -1036,7 +1094,13 @@ a.hero-cta.btn:hover {
 .footer {
   padding: 2rem;
   text-align: center;
-  border-top: 1px solid var(--oliva-medio);
+  border-top: 1px solid rgba(218, 190, 155, 0.45);
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding-bottom: 5.5rem;
+  }
 }
 
 .footer p {
