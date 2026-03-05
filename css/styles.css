@@ -488,9 +488,9 @@ img {
 
 /* Hero CTA: tamanho maior e mais destacado */
 a.hero-cta.btn {
-  padding: 2rem 4.5rem;
-  font-size: 2.4rem;
-  min-width: 560px;
+  padding: 1.35rem 3rem;
+  font-size: 1.6rem;
+  min-width: 400px;
   max-width: 100%;
   width: max-content;
   box-sizing: border-box;
@@ -510,11 +510,11 @@ a.hero-cta.btn:hover {
 
 @media (max-width: 768px) {
   a.hero-cta.btn {
-    padding: 1.75rem 3rem;
-    font-size: 2rem;
+    padding: 1.15rem 2rem;
+    font-size: 1.35rem;
     min-width: 0;
     width: 100%;
-    max-width: 640px;
+    max-width: 480px;
   }
   a.hero-cta.btn:hover {
     transform: translateX(-50%) translateY(-3px);
