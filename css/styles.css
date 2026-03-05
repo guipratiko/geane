@@ -709,6 +709,30 @@ a.hero-cta.btn:hover {
   margin-right: auto;
 }
 
+/* Seção destaque: título + imagem entre Diferencial e Conteúdo */
+.section-destaque-title {
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2rem;
+}
+
+.section-destaque-img-wrap {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-hover);
+}
+
+.section-destaque-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  vertical-align: middle;
+}
+
 /* Módulos */
 .modulo-intro {
   max-width: 640px;
