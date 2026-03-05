@@ -32,6 +32,17 @@
     });
   }
 
+  /* Scroll para o card de preço: centraliza o card e deixa o botão visível */
+  var precoCard = document.getElementById('preco-card');
+  if (precoCard) {
+    document.querySelectorAll('a[href="#preco"]').forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        precoCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
+    });
+  }
+
   /* Header: destaque ao rolar (melhor sensação de profundidade) */
   var header = document.getElementById('header');
   if (header) {

@@ -924,6 +924,17 @@ a.hero-cta.btn:hover {
   font-weight: 700;
 }
 
+/* Seção preço: card centralizado na tela */
+.section.preco {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.section.preco .container {
+  width: 100%;
+}
+
 .preco-card {
   max-width: 440px;
   margin: 0 auto;
