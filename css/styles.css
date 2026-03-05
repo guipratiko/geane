@@ -50,22 +50,7 @@ body {
   font-size: 1rem;
   line-height: 1.6;
   color: var(--dourado-claro);
-  /* Gradiente contínuo do hero ao footer (paleta escura) */
-  background: linear-gradient(
-    to bottom,
-    #111912 0%,
-    #151a12 12%,
-    #1e2218 22%,
-    #2A2F1F 35%,
-    #353826 48%,
-    #504C31 60%,
-    #5c5340 72%,
-    #766746 85%,
-    #6b5d48 92%,
-    #111912 100%
-  );
-  background-attachment: scroll;
-  min-height: 100vh;
+  background-color: var(--fundo);
 }
 
 h1, h2, h3 {
@@ -543,17 +528,17 @@ a.hero-cta.btn:hover {
 .section {
   padding: 4.5rem 0;
   position: relative;
-  background: transparent;
-  border-top: 1px solid rgba(218, 190, 155, 0.45);
 }
 
-.section:first-of-type {
-  border-top: none;
-}
-
-/* Transparente para o gradiente do body aparecer */
+/* Intercalação de fundos: seções com .section--alt usam fundo alternado */
 .section--alt {
-  background: transparent;
+  background: linear-gradient(180deg, var(--oliva-escuro) 0%, rgba(42, 47, 31, 0.6) 100%);
+}
+
+/* Seções com imagem de fundo mantêm o próprio background */
+.section.publico.section--alt,
+.section.proposta.section--alt {
+  background: unset;
 }
 
 .section-badge {
@@ -1094,13 +1079,7 @@ a.hero-cta.btn:hover {
 .footer {
   padding: 2rem;
   text-align: center;
-  border-top: 1px solid rgba(218, 190, 155, 0.45);
-}
-
-@media (max-width: 768px) {
-  .footer {
-    padding-bottom: 5.5rem;
-  }
+  border-top: 1px solid var(--oliva-medio);
 }
 
 .footer p {
