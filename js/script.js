@@ -137,4 +137,13 @@
     tick();
     var timer = setInterval(tick, 1000);
   }
+
+  /* Meta Pixel: dispara Lead ao clicar no botão de checkout (Kiwify) */
+  document.querySelectorAll('a[href*="pay.kiwify.com.br"]').forEach(function (link) {
+    link.addEventListener('click', function () {
+      if (typeof window.fbq === 'function') {
+        window.fbq('track', 'Lead');
+      }
+    });
+  });
 })();
