@@ -224,7 +224,7 @@
       fetch(webhookUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ nome: nome, whatsapp: whatsapp })
+        body: JSON.stringify({ name: nome, whatsapp: whatsapp })
       })
         .then(function (res) {
           if (!res.ok) throw new Error('Falha no envio');
