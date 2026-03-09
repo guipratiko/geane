@@ -163,7 +163,7 @@
               <span class="countdown-min">10</span><span class="countdown-sep">:</span><span class="countdown-sec">00</span>
             </div>
           </div>
-          <a href="https://pay.kiwify.com.br/aLMPkNy" class="btn btn-primary btn-large" target="_blank" rel="noopener noreferrer">👉 GARANTA SUA VAGA</a>
+          <button type="button" class="btn btn-primary btn-large" id="btn-garanta-vaga" data-open-lead-modal aria-controls="lead-modal">👉 GARANTA SUA VAGA</button>
         </div>
       </div>
     </section>
@@ -206,28 +206,28 @@
     </section>
   </main>
 
-  <!-- Popup: formulário antes do checkout -->
-  <div class="popup-overlay" id="popup-checkout" aria-hidden="true">
-    <div class="popup-box" role="dialog" aria-labelledby="popup-title" aria-modal="true">
-      <button type="button" class="popup-close" id="popup-close" aria-label="Fechar">×</button>
-      <h2 class="popup-title" id="popup-title">Garanta sua vaga</h2>
-      <p class="popup-desc">Preencha seus dados para continuar ao pagamento.</p>
-      <form class="popup-form" id="form-checkout-popup" novalidate>
-        <label for="popup-nome">Nome completo</label>
-        <input type="text" id="popup-nome" name="nome" required placeholder="Seu nome" autocomplete="name" />
-        <label for="popup-whatsapp">WhatsApp</label>
-        <input type="tel" id="popup-whatsapp" name="whatsapp" required placeholder="(00) 00000-0000" autocomplete="tel" />
-        <p class="popup-error" id="popup-error" role="alert" hidden></p>
-        <button type="submit" class="btn btn-primary btn-large popup-submit" id="popup-submit">Enviar e ir ao pagamento</button>
-      </form>
-    </div>
-  </div>
-
   <footer class="footer">
     <div class="container">
       <p>&copy; Geane Costa. Todos os direitos reservados.</p>
     </div>
   </footer>
+
+  <!-- Modal: formulário antes do checkout -->
+  <div class="lead-modal-overlay" id="lead-modal" role="dialog" aria-modal="true" aria-labelledby="lead-modal-title" aria-hidden="true">
+    <div class="lead-modal-box">
+      <button type="button" class="lead-modal-close" id="lead-modal-close" aria-label="Fechar">×</button>
+      <h2 class="lead-modal-title" id="lead-modal-title">Garanta sua vaga</h2>
+      <p class="lead-modal-desc">Preencha seus dados para seguir ao checkout.</p>
+      <form class="lead-modal-form" id="lead-modal-form" novalidate>
+        <label class="lead-modal-label" for="lead-nome">Nome completo</label>
+        <input type="text" id="lead-nome" name="nome" class="lead-modal-input" required placeholder="Seu nome" autocomplete="name" />
+        <label class="lead-modal-label" for="lead-whatsapp">WhatsApp</label>
+        <input type="tel" id="lead-whatsapp" name="whatsapp" class="lead-modal-input" required placeholder="(00) 00000-0000" autocomplete="tel" />
+        <p class="lead-modal-error" id="lead-modal-error" role="alert" aria-live="polite"></p>
+        <button type="submit" class="btn btn-primary btn-large lead-modal-submit" id="lead-modal-submit">Enviar e ir ao checkout</button>
+      </form>
+    </div>
+  </div>
 
   <script src="js/script.js"></script>
 </body>

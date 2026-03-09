@@ -138,110 +138,93 @@
     var timer = setInterval(tick, 1000);
   }
 
-  /* Popup checkout: ao clicar em GARANTA SUA VAGA abre formulário; envia webhook e só então redireciona */
-  var popup = document.getElementById('popup-checkout');
-  var popupForm = document.getElementById('form-checkout-popup');
-  var popupCloseBtn = document.getElementById('popup-close');
-  var popupError = document.getElementById('popup-error');
-  var popupSubmitBtn = document.getElementById('popup-submit');
-  var checkoutRedirectUrl = 'https://pay.kiwify.com.br/aLMPkNy';
-  var webhookUrl = '/api/webhook-proxy';
+  /* Modal lead: abrir ao clicar em "GARANTA SUA VAGA" */
+  var leadModal = document.getElementById('lead-modal');
+  var leadModalClose = document.getElementById('lead-modal-close');
+  var leadModalForm = document.getElementById('lead-modal-form');
+  var leadModalError = document.getElementById('lead-modal-error');
+  var leadModalSubmit = document.getElementById('lead-modal-submit');
+  var REDIRECT_CHECKOUT = 'https://pay.kiwify.com.br/aLMPkNy';
 
-  function openPopup() {
-    if (popup) {
-      popup.classList.add('is-open');
-      popup.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-      if (popupForm) popupForm.reset();
-      if (popupError) {
-        popupError.hidden = true;
-        popupError.textContent = '';
-      }
-    }
+  function openLeadModal() {
+    if (!leadModal) return;
+    leadModal.classList.add('is-open');
+    leadModal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('lead-modal-open');
+    if (leadModalError) leadModalError.textContent = '';
+    leadModal.querySelector('.lead-modal-input') && leadModal.querySelector('.lead-modal-input').focus();
   }
 
-  function closePopup() {
-    if (popup) {
-      popup.classList.remove('is-open');
-      popup.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-    }
+  function closeLeadModal() {
+    if (!leadModal) return;
+    leadModal.classList.remove('is-open');
+    leadModal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('lead-modal-open');
   }
 
-  if (popupCloseBtn) {
-    popupCloseBtn.addEventListener('click', closePopup);
-  }
-  if (popup) {
-    popup.addEventListener('click', function (e) {
-      if (e.target === popup) closePopup();
-    });
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && popup.classList.contains('is-open')) closePopup();
-    });
-  }
-
-  document.querySelectorAll('a[href*="pay.kiwify.com.br"]').forEach(function (link) {
-    link.addEventListener('click', function (e) {
+  document.querySelectorAll('[data-open-lead-modal], #btn-garanta-vaga').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
       e.preventDefault();
-      checkoutRedirectUrl = link.getAttribute('href') || checkoutRedirectUrl;
-      openPopup();
+      openLeadModal();
     });
   });
 
-  if (popupForm) {
-    popupForm.addEventListener('submit', function (e) {
+  if (leadModalClose) {
+    leadModalClose.addEventListener('click', closeLeadModal);
+  }
+
+  if (leadModal) {
+    leadModal.addEventListener('click', function (e) {
+      if (e.target === leadModal) closeLeadModal();
+    });
+    leadModal.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeLeadModal();
+    });
+  }
+
+  if (leadModalForm) {
+    leadModalForm.addEventListener('submit', function (e) {
       e.preventDefault();
-      var nomeInput = document.getElementById('popup-nome');
-      var whatsappInput = document.getElementById('popup-whatsapp');
-      var nome = nomeInput ? nomeInput.value.trim() : '';
-      var whatsapp = whatsappInput ? whatsappInput.value.trim().replace(/\D/g, '') : '';
+      var nomeEl = document.getElementById('lead-nome');
+      var whatsappEl = document.getElementById('lead-whatsapp');
+      var nome = (nomeEl && nomeEl.value || '').trim();
+      var whatsapp = (whatsappEl && whatsappEl.value || '').trim();
 
-      if (popupError) {
-        popupError.hidden = true;
-        popupError.textContent = '';
-      }
-
-      if (!nome) {
-        if (popupError) {
-          popupError.textContent = 'Preencha seu nome.';
-          popupError.hidden = false;
-        }
-        return;
-      }
-      if (!whatsapp || whatsapp.length < 10) {
-        if (popupError) {
-          popupError.textContent = 'Preencha um WhatsApp válido (com DDD).';
-          popupError.hidden = false;
-        }
+      if (leadModalError) leadModalError.textContent = '';
+      if (!nome || !whatsapp) {
+        if (leadModalError) leadModalError.textContent = 'Preencha nome e WhatsApp.';
         return;
       }
 
-      if (popupSubmitBtn) {
-        popupSubmitBtn.disabled = true;
-        popupSubmitBtn.textContent = 'Enviando…';
+      if (leadModalSubmit) {
+        leadModalSubmit.disabled = true;
+        leadModalSubmit.textContent = 'Enviando…';
       }
 
-      fetch(webhookUrl, {
+      fetch('/api/lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: nome, whatsapp: whatsapp })
+        body: JSON.stringify({ nome: nome, whatsapp: whatsapp }),
       })
-        .then(function (res) {
-          if (!res.ok) throw new Error('Falha no envio');
-          if (typeof window.fbq === 'function') {
-            window.fbq('track', 'Lead');
+        .then(function (res) { return res.json().then(function (data) { return { ok: res.ok, data: data }; }); })
+        .then(function (result) {
+          if (result.ok && result.data.ok && result.data.redirect) {
+            if (typeof window.fbq === 'function') window.fbq('track', 'Lead');
+            closeLeadModal();
+            window.location.href = result.data.redirect;
+            return;
           }
-          closePopup();
-          window.location.href = checkoutRedirectUrl;
+          if (leadModalError) leadModalError.textContent = (result.data && result.data.message) || 'Não foi possível enviar. Tente novamente.';
+          if (leadModalSubmit) {
+            leadModalSubmit.disabled = false;
+            leadModalSubmit.textContent = 'Enviar e ir ao checkout';
+          }
         })
         .catch(function () {
-          if (popupError) {
-            popupError.textContent = 'Não foi possível enviar. Tente de novo.';
-            popupError.hidden = false;
-          }
-          if (popupSubmitBtn) {
-            popupSubmitBtn.disabled = false;
-            popupSubmitBtn.textContent = 'Enviar e ir ao pagamento';
+          if (leadModalError) leadModalError.textContent = 'Erro de conexão. Tente novamente.';
+          if (leadModalSubmit) {
+            leadModalSubmit.disabled = false;
+            leadModalSubmit.textContent = 'Enviar e ir ao checkout';
           }
         });
     });
