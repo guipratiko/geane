@@ -138,12 +138,112 @@
     var timer = setInterval(tick, 1000);
   }
 
-  /* Meta Pixel: dispara Lead ao clicar no botão de checkout (Kiwify) */
-  document.querySelectorAll('a[href*="pay.kiwify.com.br"]').forEach(function (link) {
-    link.addEventListener('click', function () {
-      if (typeof window.fbq === 'function') {
-        window.fbq('track', 'Lead');
+  /* Popup checkout: ao clicar em GARANTA SUA VAGA abre formulário; envia webhook e só então redireciona */
+  var popup = document.getElementById('popup-checkout');
+  var popupForm = document.getElementById('form-checkout-popup');
+  var popupCloseBtn = document.getElementById('popup-close');
+  var popupError = document.getElementById('popup-error');
+  var popupSubmitBtn = document.getElementById('popup-submit');
+  var checkoutRedirectUrl = 'https://pay.kiwify.com.br/aLMPkNy';
+  var webhookUrl = 'https://back.onlyflow.com.br/api/workflows/webhook/webhookTrigger-1773070136319';
+
+  function openPopup() {
+    if (popup) {
+      popup.classList.add('is-open');
+      popup.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      if (popupForm) popupForm.reset();
+      if (popupError) {
+        popupError.hidden = true;
+        popupError.textContent = '';
       }
+    }
+  }
+
+  function closePopup() {
+    if (popup) {
+      popup.classList.remove('is-open');
+      popup.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+  }
+
+  if (popupCloseBtn) {
+    popupCloseBtn.addEventListener('click', closePopup);
+  }
+  if (popup) {
+    popup.addEventListener('click', function (e) {
+      if (e.target === popup) closePopup();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && popup.classList.contains('is-open')) closePopup();
+    });
+  }
+
+  document.querySelectorAll('a[href*="pay.kiwify.com.br"]').forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      checkoutRedirectUrl = link.getAttribute('href') || checkoutRedirectUrl;
+      openPopup();
     });
   });
+
+  if (popupForm) {
+    popupForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var nomeInput = document.getElementById('popup-nome');
+      var whatsappInput = document.getElementById('popup-whatsapp');
+      var nome = nomeInput ? nomeInput.value.trim() : '';
+      var whatsapp = whatsappInput ? whatsappInput.value.trim().replace(/\D/g, '') : '';
+
+      if (popupError) {
+        popupError.hidden = true;
+        popupError.textContent = '';
+      }
+
+      if (!nome) {
+        if (popupError) {
+          popupError.textContent = 'Preencha seu nome.';
+          popupError.hidden = false;
+        }
+        return;
+      }
+      if (!whatsapp || whatsapp.length < 10) {
+        if (popupError) {
+          popupError.textContent = 'Preencha um WhatsApp válido (com DDD).';
+          popupError.hidden = false;
+        }
+        return;
+      }
+
+      if (popupSubmitBtn) {
+        popupSubmitBtn.disabled = true;
+        popupSubmitBtn.textContent = 'Enviando…';
+      }
+
+      fetch(webhookUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nome: nome, whatsapp: whatsapp })
+      })
+        .then(function (res) {
+          if (!res.ok) throw new Error('Falha no envio');
+          if (typeof window.fbq === 'function') {
+            window.fbq('track', 'Lead');
+          }
+          closePopup();
+          window.location.href = checkoutRedirectUrl;
+        })
+        .catch(function () {
+          if (popupError) {
+            popupError.textContent = 'Não foi possível enviar. Tente de novo.';
+            popupError.hidden = false;
+          }
+          if (popupSubmitBtn) {
+            popupSubmitBtn.disabled = false;
+            popupSubmitBtn.textContent = 'Enviar e ir ao pagamento';
+          }
+        });
+    });
+  }
 })();

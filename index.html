@@ -206,6 +206,23 @@
     </section>
   </main>
 
+  <!-- Popup: formulário antes do checkout -->
+  <div class="popup-overlay" id="popup-checkout" aria-hidden="true">
+    <div class="popup-box" role="dialog" aria-labelledby="popup-title" aria-modal="true">
+      <button type="button" class="popup-close" id="popup-close" aria-label="Fechar">×</button>
+      <h2 class="popup-title" id="popup-title">Garanta sua vaga</h2>
+      <p class="popup-desc">Preencha seus dados para continuar ao pagamento.</p>
+      <form class="popup-form" id="form-checkout-popup" novalidate>
+        <label for="popup-nome">Nome completo</label>
+        <input type="text" id="popup-nome" name="nome" required placeholder="Seu nome" autocomplete="name" />
+        <label for="popup-whatsapp">WhatsApp</label>
+        <input type="tel" id="popup-whatsapp" name="whatsapp" required placeholder="(00) 00000-0000" autocomplete="tel" />
+        <p class="popup-error" id="popup-error" role="alert" hidden></p>
+        <button type="submit" class="btn btn-primary btn-large popup-submit" id="popup-submit">Enviar e ir ao pagamento</button>
+      </form>
+    </div>
+  </div>
+
   <footer class="footer">
     <div class="container">
       <p>&copy; Geane Costa. Todos os direitos reservados.</p>
