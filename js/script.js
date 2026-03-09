@@ -145,7 +145,7 @@
   var popupError = document.getElementById('popup-error');
   var popupSubmitBtn = document.getElementById('popup-submit');
   var checkoutRedirectUrl = 'https://pay.kiwify.com.br/aLMPkNy';
-  var webhookUrl = 'https://back.onlyflow.com.br/api/workflows/webhook/webhookTrigger-1773070136319';
+  var webhookUrl = '/api/webhook-proxy';
 
   function openPopup() {
     if (popup) {
