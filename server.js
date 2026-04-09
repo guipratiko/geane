@@ -4,7 +4,7 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const WEBHOOK_URL = 'https://back.onlyflow.com.br/api/workflows/webhook/webhookTrigger-1775671025479';
+const WEBHOOK_URL = 'https://back.onlyflow.com.br/api/workflows/webhook/webhookTrigger-1775745859126';
 const REDIRECT_URL = 'https://pay.kiwify.com.br/aLMPkNy';
 
 app.use(express.json());
