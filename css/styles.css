@@ -1468,28 +1468,27 @@ body.lead-modal-open {
 .hero-collab-inner {
   position: relative;
   z-index: 1;
-  text-align: right;
+  text-align: center;
 }
 
 .hero-collab-eyebrow {
-  margin: 0 0 1.25rem auto;
+  margin: 0 auto 1.25rem;
   max-width: 100%;
   font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.06em;
   color: var(--dourado-envelhecido);
-  text-align: right;
+  text-align: center;
 }
 
 .hero-collab-title {
-  margin: 0 0 1.5rem 0;
-  margin-left: auto;
+  margin: 0 auto 1.5rem;
   max-width: 100%;
   font-size: clamp(1.5rem, 3.6vw, 2.5rem);
   color: var(--dourado-claro);
   line-height: 1.15;
   letter-spacing: -0.02em;
-  text-align: right;
+  text-align: center;
   text-shadow: 0 2px 24px rgba(17, 25, 18, 0.8);
 }
 
@@ -1499,24 +1498,22 @@ body.lead-modal-open {
 }
 
 .hero-collab-lead {
-  margin: 0 0 1.25rem 0;
-  margin-left: auto;
+  margin: 0 auto 1.25rem;
   max-width: 100%;
   font-size: 1.02rem;
   line-height: 1.65;
   color: var(--dourado-claro);
   opacity: 0.97;
-  text-align: right;
+  text-align: center;
   text-shadow: 0 1px 16px rgba(17, 25, 18, 0.75);
 }
 
 .hero-collab-pilares {
   list-style: none;
   padding: 0;
-  margin: 0 0 1.75rem 0;
-  margin-left: auto;
+  margin: 0 auto 1.75rem;
   max-width: 100%;
-  text-align: right;
+  text-align: center;
   font-size: 0.95rem;
   color: var(--dourado-envelhecido);
 }
@@ -1527,7 +1524,7 @@ body.lead-modal-open {
 
 .hero--collab .hero-cta.btn {
   margin-left: auto;
-  margin-right: 0;
+  margin-right: auto;
   display: inline-flex;
   justify-content: center;
   align-items: center;
