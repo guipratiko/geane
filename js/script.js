@@ -144,7 +144,7 @@
   var leadModalForm = document.getElementById('lead-modal-form');
   var leadModalError = document.getElementById('lead-modal-error');
   var leadModalSubmit = document.getElementById('lead-modal-submit');
-  var REDIRECT_CHECKOUT = 'https://pay.kiwify.com.br/aLMPkNy';
+  var REDIRECT_CHECKOUT = 'https://pay.kiwify.com.br/iDL8Dfb';
 
   function openLeadModal() {
     if (!leadModal) return;
@@ -228,5 +228,10 @@
           }
         });
     });
+  }
+
+  var footerYear = document.getElementById('footer-year');
+  if (footerYear) {
+    footerYear.textContent = String(new Date().getFullYear());
   }
 })();
