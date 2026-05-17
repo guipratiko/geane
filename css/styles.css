@@ -483,6 +483,45 @@ img {
   max-width: 320px;
 }
 
+/* Pulso nos botões Inscrever-me */
+@keyframes cta-pulse {
+  0%, 100% {
+    box-shadow: 0 2px 12px rgba(193, 39, 45, 0.2), 0 0 0 0 rgba(193, 39, 45, 0.45);
+  }
+  50% {
+    box-shadow: 0 4px 20px rgba(193, 39, 45, 0.35), 0 0 0 10px rgba(193, 39, 45, 0);
+  }
+}
+
+@keyframes cta-pulse-subtle {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
+  }
+}
+
+.hero-cta.btn,
+.nav-cta,
+.preco-card .btn-primary {
+  animation: cta-pulse 2s ease-in-out infinite, cta-pulse-subtle 2s ease-in-out infinite;
+}
+
+.hero-cta.btn:hover,
+.nav-cta:hover,
+.preco-card .btn-primary:hover {
+  animation: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-cta.btn,
+  .nav-cta,
+  .preco-card .btn-primary {
+    animation: none;
+  }
+}
+
 /* Hero CTA: tamanho maior e mais destacado */
 a.hero-cta.btn {
   padding: 1.25rem 2.75rem;
@@ -1568,7 +1607,7 @@ body.lead-modal-open {
     right: 0;
     bottom: 0;
     left: 0;
-    background-image: url('../img/bannernovo.png');
+    background-image: url('../img/bannerMobile.png');
     background-position: center top;
     background-size: cover;
   }
