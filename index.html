@@ -246,6 +246,29 @@
   .final-list li{display:flex; gap:10px; font-size:14.5px; color:var(--text); align-items:flex-start;}
   .final-list li svg{flex-shrink:0; margin-top:2px; color:var(--gold-light);}
   .final-cta .btn-primary{padding:20px 44px; font-size:16.5px;}
+  .price-block{
+    margin: 8px auto 28px; padding: 22px 24px;
+    max-width: 420px;
+    background: rgba(212,175,55,0.08);
+    border: 1px solid rgba(212,175,55,0.35);
+    border-radius: 16px;
+  }
+  .price-block .price-label{
+    font-size: 12px; font-weight: 800; letter-spacing: 1.2px;
+    text-transform: uppercase; color: var(--text-dimmer); margin-bottom: 8px;
+  }
+  .price-block .price-old{
+    font-size: 18px; color: var(--text-dimmer);
+    text-decoration: line-through; margin-bottom: 4px;
+  }
+  .price-block .price-now{
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(36px, 6vw, 48px); font-weight: 700;
+    color: var(--gold-light); line-height: 1.1;
+  }
+  .price-block .price-note{
+    margin-top: 8px; font-size: 13.5px; color: var(--text-dim);
+  }
 
   /* FAQ */
   .faq-list{max-width:800px; margin:0 auto;}
@@ -300,6 +323,7 @@
   @media (max-width: 640px){
     .wrap{padding:0 18px;}
     .nav-cta{display:none;}
+    .hero-cta{display:none;}
     .bonus-grid{grid-template-columns:1fr;}
     .module summary{padding:18px;}
     .module summary h3{font-size:16px;}
@@ -315,7 +339,7 @@
 <header class="nav">
   <div class="wrap">
     <div class="logo">As Fraudes dos <b>Excluídos do INSS</b></div>
-    <a class="btn btn-primary nav-cta" href="https://pay.kiwify.com.br/HT6td2c?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZnRzaAS_xaBwZG9mAmV4dG4DYWVtAjExAHNydGMGYXBwX2lkDzEyNDAyNDU3NDI4NzQxNAABpw1xqw2DHDojnnoORaeTF6Cn5DPYZkr5LE2z06wd4uWbER1jggUKDEGsnyB9_aem_03nQ8AR-k926GFtDtNZEjQ&utm_id=97760_v0_s00_e0_tv3" target="_blank" rel="noopener">Garantir minha vaga</a>
+    <a class="btn btn-primary nav-cta" href="#preco">Garantir minha vaga</a>
   </div>
 </header>
 
@@ -335,7 +359,7 @@
     </div>
 
     <div class="hero-cta">
-      <a class="btn btn-primary" href="https://pay.kiwify.com.br/HT6td2c?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZnRzaAS_xaBwZG9mAmV4dG4DYWVtAjExAHNydGMGYXBwX2lkDzEyNDAyNDU3NDI4NzQxNAABpw1xqw2DHDojnnoORaeTF6Cn5DPYZkr5LE2z06wd4uWbER1jggUKDEGsnyB9_aem_03nQ8AR-k926GFtDtNZEjQ&utm_id=97760_v0_s00_e0_tv3" target="_blank" rel="noopener">Quero garantir minha vaga</a>
+      <a class="btn btn-primary" href="#preco">Quero garantir minha vaga</a>
       <span class="cta-note">Vagas limitadas · Acesso à aula ao vivo e ao grupo exclusivo de participantes</span>
     </div>
 
@@ -388,7 +412,7 @@
       <div class="audience-side">
         <h3>Um campo ainda pouco explorado na advocacia</h3>
         <p>Este evento foi criado para quem deseja dominar a prática de análise de extratos do INSS e atuar em uma frente ainda pouco explorada · com critério técnico, segurança profissional e resultado real para o cliente.</p>
-        <a class="btn btn-primary btn-block" href="https://pay.kiwify.com.br/HT6td2c?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZnRzaAS_xaBwZG9mAmV4dG4DYWVtAjExAHNydGMGYXBwX2lkDzEyNDAyNDU3NDI4NzQxNAABpw1xqw2DHDojnnoORaeTF6Cn5DPYZkr5LE2z06wd4uWbER1jggUKDEGsnyB9_aem_03nQ8AR-k926GFtDtNZEjQ&utm_id=97760_v0_s00_e0_tv3" target="_blank" rel="noopener">Quero minha vaga</a>
+        <a class="btn btn-primary btn-block" href="#preco">Quero minha vaga</a>
       </div>
     </div>
   </div>
@@ -405,7 +429,7 @@
       <p>O problema é que a teoria isolada não prepara o advogado para identificar fraudes e inconsistências reais nos documentos.</p>
       <p>Após mais de <strong>1.700 ações protocoladas</strong> e a formação de centenas de advogados na prática, este evento foi estruturado para mostrar como analisar extratos do INSS com critério técnico e segurança profissional.</p>
       <div class="cta-row">
-        <a class="btn btn-primary" href="https://pay.kiwify.com.br/HT6td2c?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZnRzaAS_xaBwZG9mAmV4dG4DYWVtAjExAHNydGMGYXBwX2lkDzEyNDAyNDU3NDI4NzQxNAABpw1xqw2DHDojnnoORaeTF6Cn5DPYZkr5LE2z06wd4uWbER1jggUKDEGsnyB9_aem_03nQ8AR-k926GFtDtNZEjQ&utm_id=97760_v0_s00_e0_tv3" target="_blank" rel="noopener">Quero dominar a prática</a>
+        <a class="btn btn-primary" href="#preco">Quero dominar a prática</a>
       </div>
     </div>
     <div class="stat-grid">
@@ -439,7 +463,7 @@
         </div>
       </div>
       <p class="learn-closing">Uma atuação técnica, específica e ainda pouco dominada na advocacia.</p>
-      <a class="btn btn-primary" href="https://pay.kiwify.com.br/HT6td2c?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZnRzaAS_xaBwZG9mAmV4dG4DYWVtAjExAHNydGMGYXBwX2lkDzEyNDAyNDU3NDI4NzQxNAABpw1xqw2DHDojnnoORaeTF6Cn5DPYZkr5LE2z06wd4uWbER1jggUKDEGsnyB9_aem_03nQ8AR-k926GFtDtNZEjQ&utm_id=97760_v0_s00_e0_tv3" target="_blank" rel="noopener">Quero aprender na prática</a>
+      <a class="btn btn-primary" href="#preco">Quero aprender na prática</a>
     </div>
   </div>
 </section>
@@ -471,7 +495,7 @@
           <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Petição Inicial · estrutura, preliminares, fatos, fundamentação e pedidos.</li>
         </ul>
         <span class="live-tag"><span class="dot"></span>Aula ao vivo: caso prático da peça processual</span>
-        <div class="cta-row"><a class="btn btn-wine" href="https://pay.kiwify.com.br/HT6td2c?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZnRzaAS_xaBwZG9mAmV4dG4DYWVtAjExAHNydGMGYXBwX2lkDzEyNDAyNDU3NDI4NzQxNAABpw1xqw2DHDojnnoORaeTF6Cn5DPYZkr5LE2z06wd4uWbER1jggUKDEGsnyB9_aem_03nQ8AR-k926GFtDtNZEjQ&utm_id=97760_v0_s00_e0_tv3" target="_blank" rel="noopener">Quero dominar a prática</a></div>
+        <div class="cta-row"><a class="btn btn-wine" href="#preco">Quero dominar a prática</a></div>
       </div>
     </details>
 
@@ -492,7 +516,7 @@
           <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Petição Inicial · estrutura, preliminares, fatos, fundamentação e pedidos.</li>
         </ul>
         <span class="live-tag"><span class="dot"></span>Aula ao vivo: caso prático em uma das situações de fraude</span>
-        <div class="cta-row"><a class="btn btn-wine" href="https://pay.kiwify.com.br/HT6td2c?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZnRzaAS_xaBwZG9mAmV4dG4DYWVtAjExAHNydGMGYXBwX2lkDzEyNDAyNDU3NDI4NzQxNAABpw1xqw2DHDojnnoORaeTF6Cn5DPYZkr5LE2z06wd4uWbER1jggUKDEGsnyB9_aem_03nQ8AR-k926GFtDtNZEjQ&utm_id=97760_v0_s00_e0_tv3" target="_blank" rel="noopener">Quero dominar a prática</a></div>
+        <div class="cta-row"><a class="btn btn-wine" href="#preco">Quero dominar a prática</a></div>
       </div>
     </details>
 
@@ -515,7 +539,7 @@
           <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Petição Inicial · estrutura, preliminares, fatos, fundamentação e pedidos.</li>
         </ul>
         <span class="live-tag"><span class="dot"></span>Aula ao vivo: caso prático em situação frequente de venda casada</span>
-        <div class="cta-row"><a class="btn btn-wine" href="https://pay.kiwify.com.br/HT6td2c?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZnRzaAS_xaBwZG9mAmV4dG4DYWVtAjExAHNydGMGYXBwX2lkDzEyNDAyNDU3NDI4NzQxNAABpw1xqw2DHDojnnoORaeTF6Cn5DPYZkr5LE2z06wd4uWbER1jggUKDEGsnyB9_aem_03nQ8AR-k926GFtDtNZEjQ&utm_id=97760_v0_s00_e0_tv3" target="_blank" rel="noopener">Quero dominar a prática</a></div>
+        <div class="cta-row"><a class="btn btn-wine" href="#preco">Quero dominar a prática</a></div>
       </div>
     </details>
 
@@ -537,7 +561,7 @@
           <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Petição Inicial · estrutura, preliminares, fatos, fundamentação e pedidos.</li>
         </ul>
         <span class="live-tag"><span class="dot"></span>Aula ao vivo: identificação de taxas e tarifas descontadas indevidamente</span>
-        <div class="cta-row"><a class="btn btn-wine" href="https://pay.kiwify.com.br/HT6td2c?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZnRzaAS_xaBwZG9mAmV4dG4DYWVtAjExAHNydGMGYXBwX2lkDzEyNDAyNDU3NDI4NzQxNAABpw1xqw2DHDojnnoORaeTF6Cn5DPYZkr5LE2z06wd4uWbER1jggUKDEGsnyB9_aem_03nQ8AR-k926GFtDtNZEjQ&utm_id=97760_v0_s00_e0_tv3" target="_blank" rel="noopener">Quero dominar a prática</a></div>
+        <div class="cta-row"><a class="btn btn-wine" href="#preco">Quero dominar a prática</a></div>
       </div>
     </details>
 
@@ -558,7 +582,7 @@
           <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Petição Inicial · estrutura, preliminares, fatos, fundamentação e pedidos.</li>
         </ul>
         <span class="live-tag"><span class="dot"></span>Aula ao vivo: caso fortuito interno ou externo aplicado ao caso concreto</span>
-        <div class="cta-row"><a class="btn btn-wine" href="https://pay.kiwify.com.br/HT6td2c?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZnRzaAS_xaBwZG9mAmV4dG4DYWVtAjExAHNydGMGYXBwX2lkDzEyNDAyNDU3NDI4NzQxNAABpw1xqw2DHDojnnoORaeTF6Cn5DPYZkr5LE2z06wd4uWbER1jggUKDEGsnyB9_aem_03nQ8AR-k926GFtDtNZEjQ&utm_id=97760_v0_s00_e0_tv3" target="_blank" rel="noopener">Quero ser expert em PIX</a></div>
+        <div class="cta-row"><a class="btn btn-wine" href="#preco">Quero ser expert em PIX</a></div>
       </div>
     </details>
 
@@ -579,7 +603,7 @@
           <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Petição Inicial · estrutura, preliminares, fatos, fundamentação e pedidos.</li>
         </ul>
         <span class="live-tag"><span class="dot"></span>Aula ao vivo: identificação da abusividade da taxa de juros no contrato</span>
-        <div class="cta-row"><a class="btn btn-wine" href="https://pay.kiwify.com.br/HT6td2c?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZnRzaAS_xaBwZG9mAmV4dG4DYWVtAjExAHNydGMGYXBwX2lkDzEyNDAyNDU3NDI4NzQxNAABpw1xqw2DHDojnnoORaeTF6Cn5DPYZkr5LE2z06wd4uWbER1jggUKDEGsnyB9_aem_03nQ8AR-k926GFtDtNZEjQ&utm_id=97760_v0_s00_e0_tv3" target="_blank" rel="noopener">Quero dominar a prática</a></div>
+        <div class="cta-row"><a class="btn btn-wine" href="#preco">Quero dominar a prática</a></div>
       </div>
     </details>
 
@@ -600,7 +624,7 @@
           <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Petição Inicial · Lei 14.181/2021 (estrutura, preliminares, fatos, fundamentação, pedidos).</li>
         </ul>
         <span class="live-tag"><span class="dot"></span>Aula ao vivo: identificação de superendividamento 100% prática</span>
-        <div class="cta-row"><a class="btn btn-wine" href="https://pay.kiwify.com.br/HT6td2c?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZnRzaAS_xaBwZG9mAmV4dG4DYWVtAjExAHNydGMGYXBwX2lkDzEyNDAyNDU3NDI4NzQxNAABpw1xqw2DHDojnnoORaeTF6Cn5DPYZkr5LE2z06wd4uWbER1jggUKDEGsnyB9_aem_03nQ8AR-k926GFtDtNZEjQ&utm_id=97760_v0_s00_e0_tv3" target="_blank" rel="noopener">Quero me inscrever</a></div>
+        <div class="cta-row"><a class="btn btn-wine" href="#preco">Quero me inscrever</a></div>
       </div>
     </details>
   </div>
@@ -647,11 +671,11 @@
     </div>
 
     <p class="bonus-closing">Esses bônus foram pensados para auxiliar na leitura de extratos, organização dos dados e compreensão técnica das irregularidades, servindo como suporte prático à sua atuação.</p>
-    <a class="btn btn-primary" href="https://pay.kiwify.com.br/HT6td2c?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZnRzaAS_xaBwZG9mAmV4dG4DYWVtAjExAHNydGMGYXBwX2lkDzEyNDAyNDU3NDI4NzQxNAABpw1xqw2DHDojnnoORaeTF6Cn5DPYZkr5LE2z06wd4uWbER1jggUKDEGsnyB9_aem_03nQ8AR-k926GFtDtNZEjQ&utm_id=97760_v0_s00_e0_tv3" target="_blank" rel="noopener">Quero o evento e os bônus</a>
+    <a class="btn btn-primary" href="#preco">Quero o evento e os bônus</a>
   </div>
 </section>
 
-<section class="final-cta" id="vagas">
+<section class="final-cta" id="preco">
   <div class="wrap">
     <div class="final-box">
       <span class="eyebrow">Últimas vagas</span>
@@ -663,6 +687,11 @@
         <li><svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Acesso aos bônus exclusivos de apoio prático</li>
         <li><svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Grupo exclusivo de participantes, para troca de experiências e orientações</li>
       </ul>
+      <div class="price-block">
+        <div class="price-label">Investimento</div>
+        <div class="price-now">R$&nbsp;120,00</div>
+        <div class="price-note">Pagamento único · acesso completo ao evento e bônus</div>
+      </div>
       <a class="btn btn-primary" href="https://pay.kiwify.com.br/HT6td2c?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZnRzaAS_xaBwZG9mAmV4dG4DYWVtAjExAHNydGMGYXBwX2lkDzEyNDAyNDU3NDI4NzQxNAABpw1xqw2DHDojnnoORaeTF6Cn5DPYZkr5LE2z06wd4uWbER1jggUKDEGsnyB9_aem_03nQ8AR-k926GFtDtNZEjQ&utm_id=97760_v0_s00_e0_tv3" target="_blank" rel="noopener">Quero garantir minha vaga agora</a>
       <p class="cta-note" style="margin-top:16px;">Vagas limitadas para garantir qualidade no acompanhamento e nas dúvidas.</p>
     </div>
@@ -704,7 +733,7 @@
       </details>
     </div>
     <div class="faq-cta">
-      <a class="btn btn-primary" href="https://pay.kiwify.com.br/HT6td2c?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZnRzaAS_xaBwZG9mAmV4dG4DYWVtAjExAHNydGMGYXBwX2lkDzEyNDAyNDU3NDI4NzQxNAABpw1xqw2DHDojnnoORaeTF6Cn5DPYZkr5LE2z06wd4uWbER1jggUKDEGsnyB9_aem_03nQ8AR-k926GFtDtNZEjQ&utm_id=97760_v0_s00_e0_tv3" target="_blank" rel="noopener">Ainda com dúvidas? Garantir minha vaga</a>
+      <a class="btn btn-primary" href="#preco">Ainda com dúvidas? Garantir minha vaga</a>
     </div>
   </div>
 </section>
@@ -724,7 +753,7 @@
 </footer>
 
 <div class="sticky-cta" id="stickyCta">
-  <a class="btn btn-primary" href="https://pay.kiwify.com.br/HT6td2c?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZnRzaAS_xaBwZG9mAmV4dG4DYWVtAjExAHNydGMGYXBwX2lkDzEyNDAyNDU3NDI4NzQxNAABpw1xqw2DHDojnnoORaeTF6Cn5DPYZkr5LE2z06wd4uWbER1jggUKDEGsnyB9_aem_03nQ8AR-k926GFtDtNZEjQ&utm_id=97760_v0_s00_e0_tv3" target="_blank" rel="noopener">Garantir minha vaga</a>
+  <a class="btn btn-primary" href="#preco">Garantir minha vaga</a>
 </div>
 
 <script>
@@ -732,15 +761,25 @@
 
   var stickyCta = document.getElementById('stickyCta');
   var hero = document.getElementById('topo');
-  var showAfter = hero ? hero.offsetHeight * 0.6 : 400;
+  var preco = document.getElementById('preco');
+  var showAfter = hero ? hero.offsetHeight * 0.85 : 500;
 
-  window.addEventListener('scroll', function(){
-    if (window.scrollY > showAfter) {
+  function updateSticky(){
+    var pastHero = window.scrollY > showAfter;
+    var nearPreco = false;
+    if (preco) {
+      var rect = preco.getBoundingClientRect();
+      nearPreco = rect.top < window.innerHeight * 0.85 && rect.bottom > 0;
+    }
+    if (pastHero && !nearPreco) {
       stickyCta.classList.add('show');
     } else {
       stickyCta.classList.remove('show');
     }
-  }, { passive: true });
+  }
+  window.addEventListener('scroll', updateSticky, { passive: true });
+  window.addEventListener('resize', updateSticky, { passive: true });
+  updateSticky();
 
   // Keep only one FAQ item open at a time
   var faqItems = document.querySelectorAll('.faq-item');
