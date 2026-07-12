@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>As Fraudes dos Excluídos do INSS | Evento para Advogados</title>
+<meta name="description" content="Aprenda a analisar extratos do INSS, identificar as fraudes dos excluídos e atuar com técnica e segurança no Direito Bancário e Previdenciário.">
+<style>
+  :root{
+    --bg: #0b0908;
+    --bg-soft: #141110;
+    --bg-card: #1a1613;
+    --line: rgba(212,175,55,0.16);
+    --gold: #d4af37;
+    --gold-light: #f3d874;
+    --wine: #7a1224;
+    --wine-light: #9c1c30;
+    --wine-deep: #4a0a15;
+    --text: #f6f1e7;
+    --text-dim: #b9ada0;
+    --text-dimmer: #8a8079;
+    --radius: 16px;
+    --maxw: 1180px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  img{max-width:100%; display:block;}
+  a{color:inherit; text-decoration:none;}
+  ul{list-style:none;}
+  .wrap{max-width: var(--maxw); margin:0 auto; padding:0 24px;}
+  section{position:relative; padding: 84px 0;}
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:12.5px; font-weight:800; letter-spacing:1.6px; text-transform:uppercase;
+    color: var(--gold-light);
+    background: rgba(212,175,55,0.08);
+    border:1px solid var(--line);
+    padding:7px 16px; border-radius:99px;
+    margin-bottom:18px;
+  }
+  .eyebrow::before{content:""; width:6px; height:6px; border-radius:50%; background:var(--gold); box-shadow:0 0 8px var(--gold);}
+  h1,h2,h3{font-family: Georgia, "Times New Roman", serif; font-weight:700; letter-spacing:-0.01em;}
+  h2{font-size: clamp(28px, 4vw, 42px); line-height:1.15; margin-bottom:18px;}
+  h2 .accent{color:var(--gold);}
+  .lede{font-size:18px; color:var(--text-dim); max-width:720px; margin-bottom:36px;}
+  .center{text-align:center; margin-left:auto; margin-right:auto;}
+
+  /* Buttons */
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:10px;
+    font-weight:800; font-size:15.5px; letter-spacing:0.2px; text-transform:uppercase;
+    padding:18px 34px; border-radius:12px; border:none; cursor:pointer;
+    transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+    white-space: normal;
+  }
+  .btn-primary{
+    background: linear-gradient(135deg, var(--gold-light), var(--gold) 60%, #a9791c);
+    color:#1c1305;
+    box-shadow: 0 8px 24px -6px rgba(212,175,55,0.55);
+  }
+  .btn-primary:hover{ transform: translateY(-2px); box-shadow: 0 14px 30px -8px rgba(212,175,55,0.7); }
+  .btn-primary:active{ transform: translateY(0); }
+  .btn-ghost{
+    background: transparent; color: var(--gold-light);
+    border: 1.5px solid rgba(212,175,55,0.5);
+  }
+  .btn-ghost:hover{ background: rgba(212,175,55,0.08); }
+  .btn-wine{
+    background: linear-gradient(135deg, var(--wine-light), var(--wine));
+    color: #fdf1e6;
+    box-shadow: 0 8px 24px -6px rgba(122,18,36,0.6);
+  }
+  .btn-wine:hover{ transform: translateY(-2px); box-shadow: 0 14px 30px -8px rgba(122,18,36,0.75); }
+  .btn-block{width:100%;}
+  .cta-row{display:flex; flex-wrap:wrap; align-items:center; gap:16px; margin-top:8px;}
+  .cta-note{font-size:13.5px; color:var(--text-dimmer);}
+
+  /* NAV */
+  header.nav{
+    position:sticky; top:0; z-index:50;
+    background: rgba(11,9,8,0.85); backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  header.nav .wrap{display:flex; align-items:center; justify-content:space-between; padding:16px 24px;}
+  .logo{font-family:Georgia, serif; font-weight:700; font-size:clamp(14px, 2.8vw, 19px); letter-spacing:0.3px; line-height:1.2; max-width:min(100%, 280px);}
+  .logo b{color:var(--gold-light);}
+  .nav-cta{padding:12px 22px; font-size:13px;}
+  .footer-logo{font-family:Georgia,serif; font-weight:700; font-size:clamp(16px, 3vw, 18px); margin-bottom:10px; line-height:1.25;}
+  .footer-logo b{color:var(--gold-light);}
+
+  /* HERO */
+  .hero{padding-top:56px; padding-bottom:70px; background:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(122,18,36,0.35), transparent),
+    radial-gradient(ellipse 60% 40% at 90% 10%, rgba(212,175,55,0.08), transparent),
+    var(--bg);
+  }
+  .hero-inner{text-align:center; max-width:900px; margin:0 auto 40px;}
+  .hero h1{font-size: clamp(30px, 4.6vw, 50px); line-height:1.12; margin-bottom:20px;}
+  .hero h1 .gold{color:var(--gold-light);}
+  .hero p.lede{margin-left:auto; margin-right:auto; font-size:19px;}
+  .banner-frame{
+    max-width: 1000px; margin: 0 auto; border-radius: 20px; overflow:hidden;
+    border: 1px solid var(--line);
+    box-shadow: 0 30px 70px -20px rgba(0,0,0,0.7), 0 0 0 1px rgba(212,175,55,0.06);
+  }
+  .banner-frame img{width:100%; height:auto;}
+  .hero-cta{display:flex; flex-direction:column; align-items:center; gap:14px; margin-top:34px;}
+  .trust-bar{
+    display:flex; flex-wrap:wrap; justify-content:center; gap:14px 34px;
+    margin-top:46px; padding-top:34px; border-top:1px solid var(--line);
+  }
+  .trust-item{display:flex; align-items:center; gap:10px; font-size:14.5px; color:var(--text-dim); font-weight:600;}
+  .trust-item svg{flex-shrink:0; color:var(--gold);}
+
+  /* ICON */
+  .icon{width:20px; height:20px; stroke: currentColor; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round;}
+
+  /* AUDIENCE */
+  .audience{background:var(--bg-soft); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .audience-grid{display:grid; grid-template-columns: 1.1fr 0.9fr; gap:56px; align-items:start;}
+  .audience-list{display:flex; flex-direction:column; gap:16px; margin-bottom:8px;}
+  .audience-item{
+    display:flex; gap:14px; align-items:flex-start;
+    background:var(--bg-card); border:1px solid var(--line); border-radius:14px; padding:18px 20px;
+  }
+  .audience-item .check{
+    flex-shrink:0; width:28px; height:28px; border-radius:50%;
+    background: rgba(212,175,55,0.12); color:var(--gold-light);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .audience-item p{font-size:15.5px; color:var(--text); font-weight:500;}
+  .audience-side{
+    background: linear-gradient(160deg, var(--wine-deep), var(--bg-card));
+    border:1px solid rgba(212,175,55,0.2); border-radius: var(--radius);
+    padding:32px; position:sticky; top:110px;
+  }
+  .audience-side h3{font-size:22px; margin-bottom:14px; color:var(--gold-light);}
+  .audience-side p{color:var(--text-dim); margin-bottom:24px; font-size:15px;}
+
+  /* WHY */
+  .why-grid{display:grid; grid-template-columns: 1fr 1fr; gap:56px; align-items:center;}
+  .why-copy p{color:var(--text-dim); font-size:16px; margin-bottom:16px;}
+  .why-copy strong{color:var(--text);}
+  .stat-grid{display:grid; grid-template-columns: 1fr 1fr; gap:16px;}
+  .stat-card{
+    background:var(--bg-card); border:1px solid var(--line); border-radius:14px;
+    padding:26px 20px; text-align:center;
+  }
+  .stat-card .num{font-family:Georgia, serif; font-size:clamp(26px,3vw,34px); color:var(--gold-light); font-weight:700; display:block;}
+  .stat-card .label{font-size:13px; color:var(--text-dim); margin-top:6px;}
+
+  /* LEARN */
+  .learn{background:var(--bg-soft); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .learn-card{
+    background: linear-gradient(150deg, var(--bg-card), var(--bg-soft));
+    border:1px solid var(--line); border-radius: var(--radius); padding:44px;
+  }
+  .learn-points{display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin:30px 0 30px;}
+  .learn-point{
+    border:1px solid var(--line); border-radius:14px; padding:22px 20px;
+    background:rgba(0,0,0,0.15);
+  }
+  .learn-point .icon-wrap{
+    width:44px; height:44px; border-radius:10px; background:rgba(212,175,55,0.12);
+    display:flex; align-items:center; justify-content:center; margin-bottom:14px; color:var(--gold-light);
+  }
+  .learn-point p{font-size:15px; color:var(--text); font-weight:600;}
+  .learn-closing{font-size:16.5px; color:var(--gold-light); font-weight:700; font-style:italic; margin-bottom:26px;}
+
+  /* MODULES */
+  .modules-head{max-width:760px; margin-bottom:44px;}
+  .module{
+    border:1px solid var(--line); border-radius:14px; background:var(--bg-card);
+    margin-bottom:14px; overflow:hidden;
+  }
+  .module summary{
+    list-style:none; cursor:pointer; padding:22px 24px;
+    display:flex; align-items:center; gap:18px; justify-content:space-between;
+  }
+  .module summary::-webkit-details-marker{display:none;}
+  .module-title-row{display:flex; align-items:center; gap:16px; min-width:0;}
+  .module-num{
+    flex-shrink:0; width:38px; height:38px; border-radius:50%;
+    background: rgba(212,175,55,0.1); border:1px solid var(--line);
+    color:var(--gold-light); font-weight:800; font-family:Georgia,serif;
+    display:flex; align-items:center; justify-content:center; font-size:15px;
+  }
+  .module summary h3{font-size:18px; font-family:-apple-system,sans-serif; font-weight:700; color:var(--text);}
+  .chevron{flex-shrink:0; transition:transform .2s ease; color:var(--gold);}
+  .module[open] .chevron{transform:rotate(180deg);}
+  .module-body{padding:0 24px 30px 24px; border-top:1px solid var(--line);}
+  .module-body p{color:var(--text-dim); font-size:15px; margin:18px 0;}
+  .module-outcome{
+    background:rgba(122,18,36,0.15); border-left:3px solid var(--wine-light);
+    padding:14px 18px; border-radius:0 10px 10px 0; font-size:14.5px; color:var(--text); margin:18px 0 !important;
+  }
+  .module-topics{display:flex; flex-direction:column; gap:10px; margin:18px 0 24px;}
+  .module-topics li{display:flex; gap:10px; font-size:14.5px; color:var(--text-dim); align-items:flex-start;}
+  .module-topics li svg{flex-shrink:0; margin-top:3px; color:var(--gold);}
+  .live-tag{
+    display:inline-flex; align-items:center; gap:8px; font-size:12px; font-weight:800;
+    letter-spacing:0.8px; text-transform:uppercase; color:var(--wine-light);
+    background:rgba(154,28,48,0.12); border:1px solid rgba(154,28,48,0.35);
+    padding:6px 12px; border-radius:99px; margin-bottom:18px;
+  }
+  .live-tag .dot{width:7px; height:7px; border-radius:50%; background:var(--wine-light); animation:pulse 1.6s infinite;}
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.35;}}
+
+  /* BONUS */
+  .bonus{background:var(--bg-soft); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .bonus-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin:36px 0 36px;}
+  .bonus-card{
+    background:var(--bg-card); border:1px solid var(--line); border-radius:14px; padding:24px;
+  }
+  .bonus-card .icon-wrap{
+    width:46px; height:46px; border-radius:10px; margin-bottom:16px;
+    background:linear-gradient(135deg, rgba(212,175,55,0.18), rgba(122,18,36,0.18));
+    display:flex; align-items:center; justify-content:center; color:var(--gold-light);
+  }
+  .bonus-card h3{font-family:-apple-system,sans-serif; font-size:16px; font-weight:700; margin-bottom:6px;}
+  .bonus-card p{font-size:14px; color:var(--text-dim);}
+  .bonus-closing{color:var(--text-dim); font-size:15px; max-width:760px; margin-bottom:30px;}
+
+  /* FINAL CTA */
+  .final-cta{
+    background: linear-gradient(160deg, var(--wine-deep) 0%, #1c0a10 55%, var(--bg) 100%);
+    border-top:1px solid rgba(212,175,55,0.25);
+  }
+  .final-box{
+    max-width:820px; margin:0 auto; text-align:center;
+    background: rgba(0,0,0,0.25); border:1px solid rgba(212,175,55,0.3);
+    border-radius:20px; padding:52px 40px;
+  }
+  .final-list{
+    display:grid; grid-template-columns:1fr 1fr; gap:14px 24px; text-align:left;
+    max-width:620px; margin: 30px auto 36px;
+  }
+  .final-list li{display:flex; gap:10px; font-size:14.5px; color:var(--text); align-items:flex-start;}
+  .final-list li svg{flex-shrink:0; margin-top:2px; color:var(--gold-light);}
+  .final-cta .btn-primary{padding:20px 44px; font-size:16.5px;}
+
+  /* FAQ */
+  .faq-list{max-width:800px; margin:0 auto;}
+  .faq-item{
+    border:1px solid var(--line); border-radius:14px; background:var(--bg-card); margin-bottom:12px; overflow:hidden;
+  }
+  .faq-item summary{
+    list-style:none; cursor:pointer; padding:20px 22px; display:flex; align-items:center; justify-content:space-between; gap:16px;
+    font-weight:700; font-size:15.5px;
+  }
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item[open] .chevron{transform:rotate(180deg);}
+  .faq-item .faq-body{padding:0 22px 22px; color:var(--text-dim); font-size:15px; border-top:1px solid var(--line);}
+  .faq-item .faq-body p{padding-top:16px;}
+  .faq-cta{text-align:center; margin-top:40px;}
+
+  /* FOOTER */
+  footer{padding:50px 0 110px; text-align:center; border-top:1px solid var(--line);}
+  footer p{color:var(--text-dimmer); font-size:13px; max-width:600px; margin:8px auto 0;}
+  .footer-credit{
+    display:flex; flex-direction:column; align-items:center; gap:10px;
+    margin-top:28px; padding-top:24px; border-top:1px solid var(--line);
+  }
+  .footer-credit span{font-size:12px; color:var(--text-dimmer); letter-spacing:0.4px; text-transform:uppercase;}
+  .footer-credit a{
+    display:inline-flex; align-items:center; justify-content:center;
+    opacity:0.85; transition: opacity .2s ease, transform .2s ease;
+  }
+  .footer-credit a:hover{opacity:1; transform: translateY(-1px);}
+  .footer-credit img{height:36px; width:auto;}
+
+  /* STICKY MOBILE CTA */
+  .sticky-cta{
+    position:fixed; left:0; right:0; bottom:0; z-index:60;
+    background:rgba(11,9,8,0.95); backdrop-filter:blur(8px);
+    border-top:1px solid var(--line);
+    padding:12px 16px; display:none;
+    transform: translateY(100%); transition: transform .3s ease;
+  }
+  .sticky-cta.show{transform:translateY(0);}
+  .sticky-cta .btn{width:100%; padding:16px;}
+
+  @media (max-width: 900px){
+    section{padding:60px 0;}
+    .audience-grid, .why-grid{grid-template-columns:1fr; gap:36px;}
+    .audience-side{position:static;}
+    .learn-points{grid-template-columns:1fr;}
+    .bonus-grid{grid-template-columns:1fr 1fr;}
+    .stat-grid{grid-template-columns:1fr 1fr;}
+    .final-list{grid-template-columns:1fr;}
+  }
+  @media (max-width: 640px){
+    .wrap{padding:0 18px;}
+    .nav-cta{display:none;}
+    .bonus-grid{grid-template-columns:1fr;}
+    .module summary{padding:18px;}
+    .module summary h3{font-size:16px;}
+    .final-box{padding:36px 22px;}
+    .sticky-cta{display:block;}
+    body{padding-bottom:0;}
+    .btn{font-size:14px; padding:16px 24px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <div class="logo">As Fraudes dos <b>Excluídos do INSS</b></div>
+    <a class="btn btn-primary nav-cta" href="https://pay.kiwify.com.br/HT6td2c?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZnRzaAS_xaBwZG9mAmV4dG4DYWVtAjExAHNydGMGYXBwX2lkDzEyNDAyNDU3NDI4NzQxNAABpw1xqw2DHDojnnoORaeTF6Cn5DPYZkr5LE2z06wd4uWbER1jggUKDEGsnyB9_aem_03nQ8AR-k926GFtDtNZEjQ&utm_id=97760_v0_s00_e0_tv3" target="_blank" rel="noopener">Garantir minha vaga</a>
+  </div>
+</header>
+
+<section class="hero" id="topo">
+  <div class="wrap">
+    <div class="hero-inner">
+      <span class="eyebrow">Evento online para advogados</span>
+      <h1>O extrato do INSS esconde mais do que parece · <span class="gold">aprenda a enxergar o que a maioria ignora.</span></h1>
+      <p class="lede">Domine a análise técnica de extratos de consignado, identifique fraudes reais e transforme isso em uma nova frente de atuação na sua advocacia.</p>
+    </div>
+
+    <div class="banner-frame">
+      <picture>
+        <source media="(max-width: 640px)" srcset="bannermobilegeane.svg">
+        <img src="BannerGeane.svg" alt="As Fraudes dos Excluídos do INSS · evento exclusivo para advogados identificarem fraudes em extratos do INSS" width="1734" height="907">
+      </picture>
+    </div>
+
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="https://pay.kiwify.com.br/HT6td2c?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZnRzaAS_xaBwZG9mAmV4dG4DYWVtAjExAHNydGMGYXBwX2lkDzEyNDAyNDU3NDI4NzQxNAABpw1xqw2DHDojnnoORaeTF6Cn5DPYZkr5LE2z06wd4uWbER1jggUKDEGsnyB9_aem_03nQ8AR-k926GFtDtNZEjQ&utm_id=97760_v0_s00_e0_tv3" target="_blank" rel="noopener">Quero garantir minha vaga</a>
+      <span class="cta-note">Vagas limitadas · Acesso à aula ao vivo e ao grupo exclusivo de participantes</span>
+    </div>
+
+    <div class="trust-bar">
+      <div class="trust-item">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        +1.700 ações protocoladas
+      </div>
+      <div class="trust-item">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        Centenas de advogados formados na prática
+      </div>
+      <div class="trust-item">
+        <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        Aula ao vivo + suporte em grupo exclusivo
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="audience" id="publico">
+  <div class="wrap">
+    <div class="audience-grid">
+      <div>
+        <span class="eyebrow">Para quem é este evento</span>
+        <h2>Este evento é para você <span class="accent">se:</span></h2>
+        <div class="audience-list">
+          <div class="audience-item">
+            <span class="check"><svg class="icon" viewBox="0 0 24 24" width="16" height="16"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <p>É advogado(a) e ainda não atua com Direito Bancário/Previdenciário aplicado ao INSS.</p>
+          </div>
+          <div class="audience-item">
+            <span class="check"><svg class="icon" viewBox="0 0 24 24" width="16" height="16"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <p>Já atua na área, mas sente dificuldade em analisar extratos e identificar irregularidades.</p>
+          </div>
+          <div class="audience-item">
+            <span class="check"><svg class="icon" viewBox="0 0 24 24" width="16" height="16"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <p>Busca uma atuação mais técnica e específica, além do básico ensinado na faculdade.</p>
+          </div>
+          <div class="audience-item">
+            <span class="check"><svg class="icon" viewBox="0 0 24 24" width="16" height="16"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <p>Percebe que falta domínio prático na leitura de documentos bancários e previdenciários.</p>
+          </div>
+          <div class="audience-item">
+            <span class="check"><svg class="icon" viewBox="0 0 24 24" width="16" height="16"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <p>Quer retomar ou fortalecer a advocacia com critério, segurança e especialização.</p>
+          </div>
+        </div>
+      </div>
+      <div class="audience-side">
+        <h3>Um campo ainda pouco explorado na advocacia</h3>
+        <p>Este evento foi criado para quem deseja dominar a prática de análise de extratos do INSS e atuar em uma frente ainda pouco explorada · com critério técnico, segurança profissional e resultado real para o cliente.</p>
+        <a class="btn btn-primary btn-block" href="https://pay.kiwify.com.br/HT6td2c?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZnRzaAS_xaBwZG9mAmV4dG4DYWVtAjExAHNydGMGYXBwX2lkDzEyNDAyNDU3NDI4NzQxNAABpw1xqw2DHDojnnoORaeTF6Cn5DPYZkr5LE2z06wd4uWbER1jggUKDEGsnyB9_aem_03nQ8AR-k926GFtDtNZEjQ&utm_id=97760_v0_s00_e0_tv3" target="_blank" rel="noopener">Quero minha vaga</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why" id="porque">
+  <div class="wrap why-grid">
+    <div class="why-copy">
+      <span class="eyebrow">Por que este evento</span>
+      <h2>Por que escolher <span class="accent">este evento?</span></h2>
+      <p>Muitos advogados acreditam que estudar Direito Bancário apenas pelo Código de Defesa do Consumidor é suficiente.</p>
+      <p><strong>Na prática, essa visão limita a atuação</strong> e dificulta a correta análise de documentos bancários e previdenciários.</p>
+      <p>A atuação técnica exige também o domínio das normas do <strong>Banco Central</strong>, da <strong>FEBRABAN</strong> e da forma como essas regras impactam diretamente os extratos de beneficiários do INSS.</p>
+      <p>O problema é que a teoria isolada não prepara o advogado para identificar fraudes e inconsistências reais nos documentos.</p>
+      <p>Após mais de <strong>1.700 ações protocoladas</strong> e a formação de centenas de advogados na prática, este evento foi estruturado para mostrar como analisar extratos do INSS com critério técnico e segurança profissional.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://pay.kiwify.com.br/HT6td2c?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZnRzaAS_xaBwZG9mAmV4dG4DYWVtAjExAHNydGMGYXBwX2lkDzEyNDAyNDU3NDI4NzQxNAABpw1xqw2DHDojnnoORaeTF6Cn5DPYZkr5LE2z06wd4uWbER1jggUKDEGsnyB9_aem_03nQ8AR-k926GFtDtNZEjQ&utm_id=97760_v0_s00_e0_tv3" target="_blank" rel="noopener">Quero dominar a prática</a>
+      </div>
+    </div>
+    <div class="stat-grid">
+      <div class="stat-card"><span class="num">+1.700</span><span class="label">Ações protocoladas</span></div>
+      <div class="stat-card"><span class="num">Centenas</span><span class="label">De advogados formados na prática</span></div>
+      <div class="stat-card"><span class="num">7</span><span class="label">Módulos 100% práticos</span></div>
+      <div class="stat-card"><span class="num">Ao vivo</span><span class="label">Aula com tira-dúvidas em grupo exclusivo</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="learn" id="aprender">
+  <div class="wrap">
+    <span class="eyebrow">O que você vai aprender</span>
+    <h2>Trilha de <span class="accent">Introdução</span></h2>
+    <div class="learn-card">
+      <p style="color:var(--text-dim); font-size:16px; max-width:760px;">Os extratos de empréstimos consignados de beneficiários do INSS frequentemente apresentam inconsistências que passam despercebidas pela maioria dos advogados · <strong style="color:var(--text)">mas não por quem sabe exatamente onde analisar.</strong></p>
+      <p style="color:var(--text); font-weight:700; margin-top:22px;">Neste evento, você vai aprender a:</p>
+      <div class="learn-points">
+        <div class="learn-point">
+          <div class="icon-wrap"><svg class="icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+          <p>Identificar fraudes e irregularidades nos extratos de consignados.</p>
+        </div>
+        <div class="learn-point">
+          <div class="icon-wrap"><svg class="icon" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M18.7 8L13 13.7 9.7 10.4 4 16"/></svg></div>
+          <p>Reconhecer padrões bancários indevidos na prática.</p>
+        </div>
+        <div class="learn-point">
+          <div class="icon-wrap"><svg class="icon" viewBox="0 0 24 24"><path d="M12 22s8-4.5 8-11V5l-8-3-8 3v6c0 6.5 8 11 8 11z"/></svg></div>
+          <p>Analisar, com critério técnico, a chamada fraude dos excluídos.</p>
+        </div>
+      </div>
+      <p class="learn-closing">Uma atuação técnica, específica e ainda pouco dominada na advocacia.</p>
+      <a class="btn btn-primary" href="https://pay.kiwify.com.br/HT6td2c?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZnRzaAS_xaBwZG9mAmV4dG4DYWVtAjExAHNydGMGYXBwX2lkDzEyNDAyNDU3NDI4NzQxNAABpw1xqw2DHDojnnoORaeTF6Cn5DPYZkr5LE2z06wd4uWbER1jggUKDEGsnyB9_aem_03nQ8AR-k926GFtDtNZEjQ&utm_id=97760_v0_s00_e0_tv3" target="_blank" rel="noopener">Quero aprender na prática</a>
+    </div>
+  </div>
+</section>
+
+<section class="modules" id="modulos">
+  <div class="wrap">
+    <div class="modules-head">
+      <span class="eyebrow">Conteúdo do evento</span>
+      <h2>7 módulos para você dominar a <span class="accent">análise de extratos do INSS</span></h2>
+      <p class="lede" style="margin-bottom:0;">Cada módulo tem conceito, análise documental, modelo de petição inicial e uma aula ao vivo com caso prático.</p>
+    </div>
+
+    <details class="module" open>
+      <summary>
+        <div class="module-title-row">
+          <span class="module-num">01</span>
+          <h3>Cartão de Crédito Consignado</h3>
+        </div>
+        <svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <div class="module-body">
+        <p>Neste módulo vou abordar o que é o cartão de crédito consignado, como calcular a reserva de margem consignável, e identificar as principais ilegalidades deste produto com casos práticos.</p>
+        <div class="module-outcome">Você vai conseguir fazer uma anulação contratual de cartão de crédito consignado, trazendo para seu cliente um retorno financeiro diante de um produto ofertado pela instituição financeira de forma indevida.</div>
+        <ul class="module-topics">
+          <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Conceito do que é o cartão de crédito consignado.</li>
+          <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Meios de adesão do cartão de crédito consignado.</li>
+          <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Como se dá a cobrança indevida do cartão, juros e refinanciamento mensal.</li>
+          <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Análise documental: fatura, contrato ou termo de adesão, extrato bancário, descontos em folha e planilha de cálculos.</li>
+          <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Petição Inicial · estrutura, preliminares, fatos, fundamentação e pedidos.</li>
+        </ul>
+        <span class="live-tag"><span class="dot"></span>Aula ao vivo: caso prático da peça processual</span>
+        <div class="cta-row"><a class="btn btn-wine" href="https://pay.kiwify.com.br/HT6td2c?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZnRzaAS_xaBwZG9mAmV4dG4DYWVtAjExAHNydGMGYXBwX2lkDzEyNDAyNDU3NDI4NzQxNAABpw1xqw2DHDojnnoORaeTF6Cn5DPYZkr5LE2z06wd4uWbER1jggUKDEGsnyB9_aem_03nQ8AR-k926GFtDtNZEjQ&utm_id=97760_v0_s00_e0_tv3" target="_blank" rel="noopener">Quero dominar a prática</a></div>
+      </div>
+    </details>
+
+    <details class="module">
+      <summary>
+        <div class="module-title-row">
+          <span class="module-num">02</span>
+          <h3>Fraude em Empréstimos</h3>
+        </div>
+        <svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <div class="module-body">
+        <p>Neste módulo, vou ensinar a analisar um contrato de empréstimo não contratado pelo cliente: como comprovar a não contratação, como proceder na juntada de documentos para reaver o direito do autor e como atuar no judiciário nas ações de fraude.</p>
+        <ul class="module-topics">
+          <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Conceito de fraude em empréstimos, principais vítimas e aplicabilidade da Súmula 479 do STJ.</li>
+          <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Contrato de empréstimo.</li>
+          <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Identificando uma fraude contratual: assinado, por telefone ou por aplicativos digitais.</li>
+          <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Petição Inicial · estrutura, preliminares, fatos, fundamentação e pedidos.</li>
+        </ul>
+        <span class="live-tag"><span class="dot"></span>Aula ao vivo: caso prático em uma das situações de fraude</span>
+        <div class="cta-row"><a class="btn btn-wine" href="https://pay.kiwify.com.br/HT6td2c?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZnRzaAS_xaBwZG9mAmV4dG4DYWVtAjExAHNydGMGYXBwX2lkDzEyNDAyNDU3NDI4NzQxNAABpw1xqw2DHDojnnoORaeTF6Cn5DPYZkr5LE2z06wd4uWbER1jggUKDEGsnyB9_aem_03nQ8AR-k926GFtDtNZEjQ&utm_id=97760_v0_s00_e0_tv3" target="_blank" rel="noopener">Quero dominar a prática</a></div>
+      </div>
+    </details>
+
+    <details class="module">
+      <summary>
+        <div class="module-title-row">
+          <span class="module-num">03</span>
+          <h3>Venda Casada</h3>
+        </div>
+        <svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <div class="module-body">
+        <p>Neste módulo o advogado identifica a venda de produtos e serviços sem solicitação e autorização nos contratos de empréstimos, entendendo como o valor da parcela pode ser reduzido significativamente.</p>
+        <div class="module-outcome">Saiba como fazer uma readequação do contrato de empréstimo, com a consequente redução da parcela.</div>
+        <ul class="module-topics">
+          <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>O que caracteriza uma venda casada e por que venda casada é crime.</li>
+          <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Lei 12.529/2011.</li>
+          <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Situações mais frequentes da venda casada.</li>
+          <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Identificando o produto/serviço: contrato, extrato bancário e/ou folha de pagamento.</li>
+          <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Petição Inicial · estrutura, preliminares, fatos, fundamentação e pedidos.</li>
+        </ul>
+        <span class="live-tag"><span class="dot"></span>Aula ao vivo: caso prático em situação frequente de venda casada</span>
+        <div class="cta-row"><a class="btn btn-wine" href="https://pay.kiwify.com.br/HT6td2c?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZnRzaAS_xaBwZG9mAmV4dG4DYWVtAjExAHNydGMGYXBwX2lkDzEyNDAyNDU3NDI4NzQxNAABpw1xqw2DHDojnnoORaeTF6Cn5DPYZkr5LE2z06wd4uWbER1jggUKDEGsnyB9_aem_03nQ8AR-k926GFtDtNZEjQ&utm_id=97760_v0_s00_e0_tv3" target="_blank" rel="noopener">Quero dominar a prática</a></div>
+      </div>
+    </details>
+
+    <details class="module">
+      <summary>
+        <div class="module-title-row">
+          <span class="module-num">04</span>
+          <h3>Taxas e Tarifas Bancárias</h3>
+        </div>
+        <svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <div class="module-body">
+        <p>Vou te ensinar a identificar as abusividades nas tarifas e taxas bancárias, com análise prática de extratos de conta para identificar as taxas indevidas, além de contratos e termos trazidos pelos bancos.</p>
+        <div class="module-outcome">Descubra como fazer um cancelamento dos descontos em conta e a restituição por todo o período cobrado indevidamente.</div>
+        <ul class="module-topics">
+          <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Do que se tratam as taxas e tarifas bancárias e quando podem ser cobradas.</li>
+          <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Resolução 3.919/2010 e Resolução 3.424/2006 · Banco Central do Brasil.</li>
+          <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Análise documental: extrato da conta e contrato/termo de adesão do pacote de serviços.</li>
+          <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Petição Inicial · estrutura, preliminares, fatos, fundamentação e pedidos.</li>
+        </ul>
+        <span class="live-tag"><span class="dot"></span>Aula ao vivo: identificação de taxas e tarifas descontadas indevidamente</span>
+        <div class="cta-row"><a class="btn btn-wine" href="https://pay.kiwify.com.br/HT6td2c?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZnRzaAS_xaBwZG9mAmV4dG4DYWVtAjExAHNydGMGYXBwX2lkDzEyNDAyNDU3NDI4NzQxNAABpw1xqw2DHDojnnoORaeTF6Cn5DPYZkr5LE2z06wd4uWbER1jggUKDEGsnyB9_aem_03nQ8AR-k926GFtDtNZEjQ&utm_id=97760_v0_s00_e0_tv3" target="_blank" rel="noopener">Quero dominar a prática</a></div>
+      </div>
+    </details>
+
+    <details class="module">
+      <summary>
+        <div class="module-title-row">
+          <span class="module-num">05</span>
+          <h3>PIX e Fraudes</h3>
+        </div>
+        <svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <div class="module-body">
+        <p>Descubra tudo o que você precisa saber sobre essa nova modalidade: como identificar se o consumidor tem direito a reaver um PIX feito de forma errada ou em fraude, como reaver o valor e se a instituição financeira responde pelo erro. Veja também os meios administrativos e os documentos necessários para ajuizar a ação.</p>
+        <div class="module-outcome">Aprenda de forma simples os procedimentos desta nova ação, buscando solucionar os erros da forma mais breve possível.</div>
+        <ul class="module-topics">
+          <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>O que é PIX, chave PIX, segurança e meios de prevenção contra fraude.</li>
+          <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Análise documental: comprovante de transferência, requerimento administrativo, reclamação no BACEN e no consumidor.gov.</li>
+          <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Petição Inicial · estrutura, preliminares, fatos, fundamentação e pedidos.</li>
+        </ul>
+        <span class="live-tag"><span class="dot"></span>Aula ao vivo: caso fortuito interno ou externo aplicado ao caso concreto</span>
+        <div class="cta-row"><a class="btn btn-wine" href="https://pay.kiwify.com.br/HT6td2c?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZnRzaAS_xaBwZG9mAmV4dG4DYWVtAjExAHNydGMGYXBwX2lkDzEyNDAyNDU3NDI4NzQxNAABpw1xqw2DHDojnnoORaeTF6Cn5DPYZkr5LE2z06wd4uWbER1jggUKDEGsnyB9_aem_03nQ8AR-k926GFtDtNZEjQ&utm_id=97760_v0_s00_e0_tv3" target="_blank" rel="noopener">Quero ser expert em PIX</a></div>
+      </div>
+    </details>
+
+    <details class="module">
+      <summary>
+        <div class="module-title-row">
+          <span class="module-num">06</span>
+          <h3>Juros Abusivos</h3>
+        </div>
+        <svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <div class="module-body">
+        <p>Vou te ensinar, através de um caso real, como analisar um contrato e identificar os juros abusivos. Você entenderá os pontos principais de uma Ação Revisional e como calcular os juros remuneratórios com a Calculadora do Cidadão do Banco Central.</p>
+        <div class="module-outcome">Você aprenderá como conseguir a diminuição das parcelas do contrato e a restituição de valores pagos a maior por seu cliente.</div>
+        <ul class="module-topics">
+          <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>O que é juros e o que pode ser considerado juros abusivos em cartão e empréstimo.</li>
+          <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Análise documental: fatura, extrato evolutivo, contrato/termo de adesão e comprovantes de pagamento.</li>
+          <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Petição Inicial · estrutura, preliminares, fatos, fundamentação e pedidos.</li>
+        </ul>
+        <span class="live-tag"><span class="dot"></span>Aula ao vivo: identificação da abusividade da taxa de juros no contrato</span>
+        <div class="cta-row"><a class="btn btn-wine" href="https://pay.kiwify.com.br/HT6td2c?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZnRzaAS_xaBwZG9mAmV4dG4DYWVtAjExAHNydGMGYXBwX2lkDzEyNDAyNDU3NDI4NzQxNAABpw1xqw2DHDojnnoORaeTF6Cn5DPYZkr5LE2z06wd4uWbER1jggUKDEGsnyB9_aem_03nQ8AR-k926GFtDtNZEjQ&utm_id=97760_v0_s00_e0_tv3" target="_blank" rel="noopener">Quero dominar a prática</a></div>
+      </div>
+    </details>
+
+    <details class="module">
+      <summary>
+        <div class="module-title-row">
+          <span class="module-num">07</span>
+          <h3>Lei do Superendividamento</h3>
+        </div>
+        <svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <div class="module-body">
+        <p>Você vai aprender a analisar se o cliente está superendividado e como proceder na negociação com os bancos. Se for necessário recorrer ao judiciário, terá o passo a passo da inicial até a sentença.</p>
+        <div class="module-outcome">Você vai estar apto a identificar uma situação de superendividamento e aplicar a lei para readequar e reestruturar a situação financeira do seu cliente em todos os contratos.</div>
+        <ul class="module-topics">
+          <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>O que é a Lei do Superendividamento, prevenção e tratamento, crédito responsável e mínimo existencial.</li>
+          <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Análise documental: extrato ou folha de pagamento e contrato/termo de adesão. Planilha de cálculos.</li>
+          <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Petição Inicial · Lei 14.181/2021 (estrutura, preliminares, fatos, fundamentação, pedidos).</li>
+        </ul>
+        <span class="live-tag"><span class="dot"></span>Aula ao vivo: identificação de superendividamento 100% prática</span>
+        <div class="cta-row"><a class="btn btn-wine" href="https://pay.kiwify.com.br/HT6td2c?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZnRzaAS_xaBwZG9mAmV4dG4DYWVtAjExAHNydGMGYXBwX2lkDzEyNDAyNDU3NDI4NzQxNAABpw1xqw2DHDojnnoORaeTF6Cn5DPYZkr5LE2z06wd4uWbER1jggUKDEGsnyB9_aem_03nQ8AR-k926GFtDtNZEjQ&utm_id=97760_v0_s00_e0_tv3" target="_blank" rel="noopener">Quero me inscrever</a></div>
+      </div>
+    </details>
+  </div>
+</section>
+
+<section class="bonus" id="bonus">
+  <div class="wrap">
+    <span class="eyebrow">Entregáveis</span>
+    <h2>Bônus <span class="accent">exclusivos</span></h2>
+    <p class="lede">Preparamos materiais de apoio para acompanhar você durante e após o evento, facilitando a aplicação prática do conteúdo apresentado.</p>
+    <p style="color:var(--text); font-weight:700; margin-bottom:8px;">Você terá acesso a:</p>
+
+    <div class="bonus-grid">
+      <div class="bonus-card">
+        <div class="icon-wrap"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 2-3 4"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+        <h3>Perguntas frequentes</h3>
+        <p>Abordadas em todos os módulos, reunidas para consulta rápida.</p>
+      </div>
+      <div class="bonus-card">
+        <div class="icon-wrap"><svg class="icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+        <h3>Leis e resoluções</h3>
+        <p>Utilizadas nas aulas, para fundamentar sua análise com segurança.</p>
+      </div>
+      <div class="bonus-card">
+        <div class="icon-wrap"><svg class="icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg></div>
+        <h3>Modelos de petição inicial</h3>
+        <p>Relacionados aos temas do evento, prontos para adaptar aos seus casos.</p>
+      </div>
+      <div class="bonus-card">
+        <div class="icon-wrap"><svg class="icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        <h3>Normativas da FEBRABAN</h3>
+        <p>Aplicáveis à análise dos casos práticos vistos nos módulos.</p>
+      </div>
+      <div class="bonus-card">
+        <div class="icon-wrap"><svg class="icon" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="8" y="8" width="8" height="8" rx="1"/></svg></div>
+        <h3>Documentos espelho</h3>
+        <p>Para estudo e conferência lado a lado com os documentos reais.</p>
+      </div>
+      <div class="bonus-card">
+        <div class="icon-wrap"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div>
+        <h3>Planilhas em Excel</h3>
+        <p>Para apoio na análise documental e organização dos dados.</p>
+      </div>
+    </div>
+
+    <p class="bonus-closing">Esses bônus foram pensados para auxiliar na leitura de extratos, organização dos dados e compreensão técnica das irregularidades, servindo como suporte prático à sua atuação.</p>
+    <a class="btn btn-primary" href="https://pay.kiwify.com.br/HT6td2c?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZnRzaAS_xaBwZG9mAmV4dG4DYWVtAjExAHNydGMGYXBwX2lkDzEyNDAyNDU3NDI4NzQxNAABpw1xqw2DHDojnnoORaeTF6Cn5DPYZkr5LE2z06wd4uWbER1jggUKDEGsnyB9_aem_03nQ8AR-k926GFtDtNZEjQ&utm_id=97760_v0_s00_e0_tv3" target="_blank" rel="noopener">Quero o evento e os bônus</a>
+  </div>
+</section>
+
+<section class="final-cta" id="vagas">
+  <div class="wrap">
+    <div class="final-box">
+      <span class="eyebrow">Últimas vagas</span>
+      <h2>Não perca <span class="accent">sua vaga</span></h2>
+      <p class="lede center">Garanta sua participação no evento e tenha acesso a:</p>
+      <ul class="final-list">
+        <li><svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Conteúdo completo do evento, conforme apresentado nesta página</li>
+        <li><svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Aula ao vivo para acompanhamento e esclarecimento de dúvidas</li>
+        <li><svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Acesso aos bônus exclusivos de apoio prático</li>
+        <li><svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Grupo exclusivo de participantes, para troca de experiências e orientações</li>
+      </ul>
+      <a class="btn btn-primary" href="https://pay.kiwify.com.br/HT6td2c?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZnRzaAS_xaBwZG9mAmV4dG4DYWVtAjExAHNydGMGYXBwX2lkDzEyNDAyNDU3NDI4NzQxNAABpw1xqw2DHDojnnoORaeTF6Cn5DPYZkr5LE2z06wd4uWbER1jggUKDEGsnyB9_aem_03nQ8AR-k926GFtDtNZEjQ&utm_id=97760_v0_s00_e0_tv3" target="_blank" rel="noopener">Quero garantir minha vaga agora</a>
+      <p class="cta-note" style="margin-top:16px;">Vagas limitadas para garantir qualidade no acompanhamento e nas dúvidas.</p>
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="wrap">
+    <span class="eyebrow center" style="display:flex; width:fit-content; margin-left:auto; margin-right:auto;">Dúvidas frequentes</span>
+    <h2 class="center">Perguntas <span class="accent">frequentes</span></h2>
+    <div class="faq-list">
+      <details class="faq-item" open>
+        <summary>Este evento é indicado para quem nunca atuou com Direito Bancário ou Previdenciário?<svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></summary>
+        <div class="faq-body"><p>Sim. O evento foi estruturado para conduzir o advogado do básico ao prático, com foco na análise técnica de extratos do INSS. Mesmo que você nunca tenha atuado na área, o conteúdo foi pensado para desenvolver critério, leitura correta dos documentos e segurança na atuação.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>O conteúdo é teórico ou prático?<svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></summary>
+        <div class="faq-body"><p>A abordagem é essencialmente prática. O foco está na análise real de extratos, identificação de inconsistências, leitura técnica de documentos e aplicação direta das normas bancárias e previdenciárias. A teoria aparece apenas como base para a prática.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>Vou aprender a identificar fraudes nos extratos do INSS?<svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></summary>
+        <div class="faq-body"><p>Sim. Você aprenderá a identificar irregularidades, padrões bancários indevidos e fraudes recorrentes, incluindo a chamada fraude dos excluídos, além de compreender como essas inconsistências aparecem nos extratos de empréstimos consignados.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>As normas do Banco Central e da FEBRABAN são realmente aplicadas na prática?<svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></summary>
+        <div class="faq-body"><p>Sim. O evento mostra como essas normas impactam diretamente os extratos dos beneficiários do INSS, indo além do CDC. Você aprenderá a utilizar essas regras como fundamento técnico para análise e atuação jurídica.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>Os materiais bônus podem ser usados no dia a dia da advocacia?<svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></summary>
+        <div class="faq-body"><p>Com certeza. Os bônus foram criados como ferramentas práticas de trabalho, incluindo modelos de petição, planilhas em Excel, documentos espelho, normativas e perguntas frequentes, para facilitar a análise, organização e tomada de decisão nos casos reais.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>Terei suporte para tirar dúvidas durante o evento?<svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></summary>
+        <div class="faq-body"><p>Sim. Haverá aula ao vivo para esclarecimento de dúvidas, além de grupo exclusivo de participantes, onde você poderá trocar experiências, receber orientações e aprofundar o aprendizado com outros advogados.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>Esse evento realmente pode abrir uma nova frente de atuação na advocacia?<svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></summary>
+        <div class="faq-body"><p>Sim. A análise técnica de extratos do INSS é um campo ainda pouco explorado, e dominar essa prática permite uma atuação mais especializada, segura e estratégica, ampliando suas possibilidades profissionais e seu potencial de faturamento.</p></div>
+      </details>
+    </div>
+    <div class="faq-cta">
+      <a class="btn btn-primary" href="https://pay.kiwify.com.br/HT6td2c?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZnRzaAS_xaBwZG9mAmV4dG4DYWVtAjExAHNydGMGYXBwX2lkDzEyNDAyNDU3NDI4NzQxNAABpw1xqw2DHDojnnoORaeTF6Cn5DPYZkr5LE2z06wd4uWbER1jggUKDEGsnyB9_aem_03nQ8AR-k926GFtDtNZEjQ&utm_id=97760_v0_s00_e0_tv3" target="_blank" rel="noopener">Ainda com dúvidas? Garantir minha vaga</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-logo">As Fraudes dos <b>Excluídos do INSS</b></div>
+    <p>Evento exclusivo para advogados sobre análise técnica de extratos do INSS, as fraudes dos excluídos e Direito Bancário/Previdenciário aplicado à prática.</p>
+    <p>&copy; <span id="year"></span> Todos os direitos reservados.</p>
+    <div class="footer-credit">
+      <span>Desenvolvido por:</span>
+      <a href="https://www.onlyflow.com.br" target="_blank" rel="noopener" aria-label="OnlyFlow">
+        <img src="OnlyFlow-logo.png" alt="OnlyFlow" width="160" height="36">
+      </a>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-cta" id="stickyCta">
+  <a class="btn btn-primary" href="https://pay.kiwify.com.br/HT6td2c?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZnRzaAS_xaBwZG9mAmV4dG4DYWVtAjExAHNydGMGYXBwX2lkDzEyNDAyNDU3NDI4NzQxNAABpw1xqw2DHDojnnoORaeTF6Cn5DPYZkr5LE2z06wd4uWbER1jggUKDEGsnyB9_aem_03nQ8AR-k926GFtDtNZEjQ&utm_id=97760_v0_s00_e0_tv3" target="_blank" rel="noopener">Garantir minha vaga</a>
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  var stickyCta = document.getElementById('stickyCta');
+  var hero = document.getElementById('topo');
+  var showAfter = hero ? hero.offsetHeight * 0.6 : 400;
+
+  window.addEventListener('scroll', function(){
+    if (window.scrollY > showAfter) {
+      stickyCta.classList.add('show');
+    } else {
+      stickyCta.classList.remove('show');
+    }
+  }, { passive: true });
+
+  // Keep only one FAQ item open at a time
+  var faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach(function(item){
+    item.addEventListener('toggle', function(){
+      if (item.open) {
+        faqItems.forEach(function(other){
+          if (other !== item) other.open = false;
+        });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
