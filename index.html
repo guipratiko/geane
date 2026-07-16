@@ -119,11 +119,36 @@ src="https://www.facebook.com/tr?id=1202486781968282&ev=PageView&noscript=1"
     radial-gradient(ellipse 60% 40% at 90% 10%, rgba(212,175,55,0.08), transparent),
     var(--bg);
   }
-  .hero-inner{text-align:center; max-width:900px; margin:0 auto 40px;}
-  .hero h1{font-size: clamp(30px, 4.6vw, 50px); line-height:1.12; margin-bottom:20px;}
+  .hero-eyebrow{
+    display:flex;
+    width: fit-content;
+    margin: 0 auto 18px;
+    text-shadow: none;
+  }
+  .hero-inner{
+    position:relative; overflow:hidden;
+    max-width:1000px; margin:0 auto 40px;
+    min-height: 420px;
+    border-radius:20px;
+    border: 1px solid var(--line);
+    display:flex; flex-direction:column; justify-content:center; align-items:flex-start;
+    text-align:left;
+    padding: 48px 44px;
+    background:
+      linear-gradient(90deg, rgba(11,9,8,0.92) 0%, rgba(11,9,8,0.78) 42%, rgba(11,9,8,0.25) 68%, rgba(11,9,8,0.1) 100%),
+      url("bannerdesk.png") right center / cover no-repeat;
+    box-shadow: 0 30px 70px -20px rgba(0,0,0,0.7), 0 0 0 1px rgba(212,175,55,0.06);
+  }
+  .hero-inner .lede{max-width:480px; margin-bottom:0; color:var(--text-dim); text-shadow: 0 2px 10px rgba(0,0,0,0.95), 0 1px 3px rgba(0,0,0,1);}
+  .hero h1{
+    font-size: clamp(28px, 3.8vw, 44px); line-height:1.15; margin-bottom:18px;
+    max-width: 520px;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.95), 0 1px 3px rgba(0,0,0,1);
+  }
   .hero h1 .gold{color:var(--gold-light);}
-  .hero p.lede{margin-left:auto; margin-right:auto; font-size:19px;}
+  .hero p.lede{font-size:17px;}
   .banner-frame{
+    display: none;
     max-width: 1000px; margin: 0 auto; border-radius: 20px; overflow:hidden;
     border: 1px solid var(--line);
     box-shadow: 0 30px 70px -20px rgba(0,0,0,0.7), 0 0 0 1px rgba(212,175,55,0.06);
@@ -341,6 +366,20 @@ src="https://www.facebook.com/tr?id=1202486781968282&ev=PageView&noscript=1"
     .wrap{padding:0 18px;}
     .nav-cta{display:none;}
     .hero-cta{display:none;}
+    .hero-inner{
+      padding:40px 22px 48px;
+      margin-bottom:28px;
+      min-height: min(78vh, 640px);
+      text-align:center;
+      align-items:center;
+      justify-content:flex-start;
+      background:
+        linear-gradient(180deg, rgba(11,9,8,0.88) 0%, rgba(11,9,8,0.55) 38%, rgba(11,9,8,0.2) 70%, rgba(11,9,8,0.55) 100%),
+        url("bannergeanem.svg") center top / cover no-repeat;
+    }
+    .hero-inner .lede{max-width:100%;}
+    .hero h1{max-width:100%;}
+    .banner-frame{display:none;}
     .bonus-grid{grid-template-columns:1fr;}
     .module summary{padding:18px;}
     .module summary h3{font-size:16px;}
@@ -362,17 +401,10 @@ src="https://www.facebook.com/tr?id=1202486781968282&ev=PageView&noscript=1"
 
 <section class="hero" id="topo">
   <div class="wrap">
+    <span class="eyebrow hero-eyebrow">Evento online para advogados</span>
     <div class="hero-inner">
-      <span class="eyebrow">Evento online para advogados</span>
       <h1>O extrato do INSS esconde mais do que parece · <span class="gold">aprenda a enxergar o que a maioria ignora.</span></h1>
       <p class="lede">Domine a análise técnica de extratos de consignado, identifique fraudes reais e transforme isso em uma nova frente de atuação na sua advocacia.</p>
-    </div>
-
-    <div class="banner-frame">
-      <picture>
-        <source media="(max-width: 640px)" srcset="bannermobilegeane.svg">
-        <img src="BannerGeane.svg" alt="As Fraudes dos Excluídos do INSS · evento exclusivo para advogados identificarem fraudes em extratos do INSS" width="1734" height="907">
-      </picture>
     </div>
 
     <div class="hero-cta">
@@ -451,8 +483,6 @@ src="https://www.facebook.com/tr?id=1202486781968282&ev=PageView&noscript=1"
     </div>
     <div class="stat-grid">
       <div class="stat-card"><span class="num">+1.700</span><span class="label">Ações protocoladas</span></div>
-      <div class="stat-card"><span class="num">Centenas</span><span class="label">De advogados formados na prática</span></div>
-      <div class="stat-card"><span class="num">7</span><span class="label">Módulos 100% práticos</span></div>
       <div class="stat-card"><span class="num">Ao vivo</span><span class="label">Aula com tira-dúvidas em grupo exclusivo</span></div>
     </div>
   </div>
@@ -485,168 +515,6 @@ src="https://www.facebook.com/tr?id=1202486781968282&ev=PageView&noscript=1"
   </div>
 </section>
 
-<section class="modules" id="modulos">
-  <div class="wrap">
-    <div class="modules-head">
-      <span class="eyebrow">Conteúdo do evento</span>
-      <h2>7 módulos para você dominar a <span class="accent">análise de extratos do INSS</span></h2>
-      <p class="lede" style="margin-bottom:0;">Cada módulo tem conceito, análise documental, modelo de petição inicial e uma aula ao vivo com caso prático.</p>
-    </div>
-
-    <details class="module" open>
-      <summary>
-        <div class="module-title-row">
-          <span class="module-num">01</span>
-          <h3>Cartão de Crédito Consignado</h3>
-        </div>
-        <svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-      </summary>
-      <div class="module-body">
-        <p>Neste módulo vou abordar o que é o cartão de crédito consignado, como calcular a reserva de margem consignável, e identificar as principais ilegalidades deste produto com casos práticos.</p>
-        <div class="module-outcome">Você vai conseguir fazer uma anulação contratual de cartão de crédito consignado, trazendo para seu cliente um retorno financeiro diante de um produto ofertado pela instituição financeira de forma indevida.</div>
-        <ul class="module-topics">
-          <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Conceito do que é o cartão de crédito consignado.</li>
-          <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Meios de adesão do cartão de crédito consignado.</li>
-          <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Como se dá a cobrança indevida do cartão, juros e refinanciamento mensal.</li>
-          <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Análise documental: fatura, contrato ou termo de adesão, extrato bancário, descontos em folha e planilha de cálculos.</li>
-          <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Petição Inicial · estrutura, preliminares, fatos, fundamentação e pedidos.</li>
-        </ul>
-        <span class="live-tag"><span class="dot"></span>Aula ao vivo: caso prático da peça processual</span>
-        <div class="cta-row"><a class="btn btn-wine" href="#preco">Quero dominar a prática</a></div>
-      </div>
-    </details>
-
-    <details class="module">
-      <summary>
-        <div class="module-title-row">
-          <span class="module-num">02</span>
-          <h3>Fraude em Empréstimos</h3>
-        </div>
-        <svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-      </summary>
-      <div class="module-body">
-        <p>Neste módulo, vou ensinar a analisar um contrato de empréstimo não contratado pelo cliente: como comprovar a não contratação, como proceder na juntada de documentos para reaver o direito do autor e como atuar no judiciário nas ações de fraude.</p>
-        <ul class="module-topics">
-          <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Conceito de fraude em empréstimos, principais vítimas e aplicabilidade da Súmula 479 do STJ.</li>
-          <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Contrato de empréstimo.</li>
-          <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Identificando uma fraude contratual: assinado, por telefone ou por aplicativos digitais.</li>
-          <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Petição Inicial · estrutura, preliminares, fatos, fundamentação e pedidos.</li>
-        </ul>
-        <span class="live-tag"><span class="dot"></span>Aula ao vivo: caso prático em uma das situações de fraude</span>
-        <div class="cta-row"><a class="btn btn-wine" href="#preco">Quero dominar a prática</a></div>
-      </div>
-    </details>
-
-    <details class="module">
-      <summary>
-        <div class="module-title-row">
-          <span class="module-num">03</span>
-          <h3>Venda Casada</h3>
-        </div>
-        <svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-      </summary>
-      <div class="module-body">
-        <p>Neste módulo o advogado identifica a venda de produtos e serviços sem solicitação e autorização nos contratos de empréstimos, entendendo como o valor da parcela pode ser reduzido significativamente.</p>
-        <div class="module-outcome">Saiba como fazer uma readequação do contrato de empréstimo, com a consequente redução da parcela.</div>
-        <ul class="module-topics">
-          <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>O que caracteriza uma venda casada e por que venda casada é crime.</li>
-          <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Lei 12.529/2011.</li>
-          <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Situações mais frequentes da venda casada.</li>
-          <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Identificando o produto/serviço: contrato, extrato bancário e/ou folha de pagamento.</li>
-          <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Petição Inicial · estrutura, preliminares, fatos, fundamentação e pedidos.</li>
-        </ul>
-        <span class="live-tag"><span class="dot"></span>Aula ao vivo: caso prático em situação frequente de venda casada</span>
-        <div class="cta-row"><a class="btn btn-wine" href="#preco">Quero dominar a prática</a></div>
-      </div>
-    </details>
-
-    <details class="module">
-      <summary>
-        <div class="module-title-row">
-          <span class="module-num">04</span>
-          <h3>Taxas e Tarifas Bancárias</h3>
-        </div>
-        <svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-      </summary>
-      <div class="module-body">
-        <p>Vou te ensinar a identificar as abusividades nas tarifas e taxas bancárias, com análise prática de extratos de conta para identificar as taxas indevidas, além de contratos e termos trazidos pelos bancos.</p>
-        <div class="module-outcome">Descubra como fazer um cancelamento dos descontos em conta e a restituição por todo o período cobrado indevidamente.</div>
-        <ul class="module-topics">
-          <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Do que se tratam as taxas e tarifas bancárias e quando podem ser cobradas.</li>
-          <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Resolução 3.919/2010 e Resolução 3.424/2006 · Banco Central do Brasil.</li>
-          <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Análise documental: extrato da conta e contrato/termo de adesão do pacote de serviços.</li>
-          <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Petição Inicial · estrutura, preliminares, fatos, fundamentação e pedidos.</li>
-        </ul>
-        <span class="live-tag"><span class="dot"></span>Aula ao vivo: identificação de taxas e tarifas descontadas indevidamente</span>
-        <div class="cta-row"><a class="btn btn-wine" href="#preco">Quero dominar a prática</a></div>
-      </div>
-    </details>
-
-    <details class="module">
-      <summary>
-        <div class="module-title-row">
-          <span class="module-num">05</span>
-          <h3>PIX e Fraudes</h3>
-        </div>
-        <svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-      </summary>
-      <div class="module-body">
-        <p>Descubra tudo o que você precisa saber sobre essa nova modalidade: como identificar se o consumidor tem direito a reaver um PIX feito de forma errada ou em fraude, como reaver o valor e se a instituição financeira responde pelo erro. Veja também os meios administrativos e os documentos necessários para ajuizar a ação.</p>
-        <div class="module-outcome">Aprenda de forma simples os procedimentos desta nova ação, buscando solucionar os erros da forma mais breve possível.</div>
-        <ul class="module-topics">
-          <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>O que é PIX, chave PIX, segurança e meios de prevenção contra fraude.</li>
-          <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Análise documental: comprovante de transferência, requerimento administrativo, reclamação no BACEN e no consumidor.gov.</li>
-          <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Petição Inicial · estrutura, preliminares, fatos, fundamentação e pedidos.</li>
-        </ul>
-        <span class="live-tag"><span class="dot"></span>Aula ao vivo: caso fortuito interno ou externo aplicado ao caso concreto</span>
-        <div class="cta-row"><a class="btn btn-wine" href="#preco">Quero ser expert em PIX</a></div>
-      </div>
-    </details>
-
-    <details class="module">
-      <summary>
-        <div class="module-title-row">
-          <span class="module-num">06</span>
-          <h3>Juros Abusivos</h3>
-        </div>
-        <svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-      </summary>
-      <div class="module-body">
-        <p>Vou te ensinar, através de um caso real, como analisar um contrato e identificar os juros abusivos. Você entenderá os pontos principais de uma Ação Revisional e como calcular os juros remuneratórios com a Calculadora do Cidadão do Banco Central.</p>
-        <div class="module-outcome">Você aprenderá como conseguir a diminuição das parcelas do contrato e a restituição de valores pagos a maior por seu cliente.</div>
-        <ul class="module-topics">
-          <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>O que é juros e o que pode ser considerado juros abusivos em cartão e empréstimo.</li>
-          <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Análise documental: fatura, extrato evolutivo, contrato/termo de adesão e comprovantes de pagamento.</li>
-          <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Petição Inicial · estrutura, preliminares, fatos, fundamentação e pedidos.</li>
-        </ul>
-        <span class="live-tag"><span class="dot"></span>Aula ao vivo: identificação da abusividade da taxa de juros no contrato</span>
-        <div class="cta-row"><a class="btn btn-wine" href="#preco">Quero dominar a prática</a></div>
-      </div>
-    </details>
-
-    <details class="module">
-      <summary>
-        <div class="module-title-row">
-          <span class="module-num">07</span>
-          <h3>Lei do Superendividamento</h3>
-        </div>
-        <svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-      </summary>
-      <div class="module-body">
-        <p>Você vai aprender a analisar se o cliente está superendividado e como proceder na negociação com os bancos. Se for necessário recorrer ao judiciário, terá o passo a passo da inicial até a sentença.</p>
-        <div class="module-outcome">Você vai estar apto a identificar uma situação de superendividamento e aplicar a lei para readequar e reestruturar a situação financeira do seu cliente em todos os contratos.</div>
-        <ul class="module-topics">
-          <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>O que é a Lei do Superendividamento, prevenção e tratamento, crédito responsável e mínimo existencial.</li>
-          <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Análise documental: extrato ou folha de pagamento e contrato/termo de adesão. Planilha de cálculos.</li>
-          <li><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Petição Inicial · Lei 14.181/2021 (estrutura, preliminares, fatos, fundamentação, pedidos).</li>
-        </ul>
-        <span class="live-tag"><span class="dot"></span>Aula ao vivo: identificação de superendividamento 100% prática</span>
-        <div class="cta-row"><a class="btn btn-wine" href="#preco">Quero me inscrever</a></div>
-      </div>
-    </details>
-  </div>
-</section>
-
 <section class="bonus" id="bonus">
   <div class="wrap">
     <span class="eyebrow">Entregáveis</span>
@@ -658,22 +526,7 @@ src="https://www.facebook.com/tr?id=1202486781968282&ev=PageView&noscript=1"
       <div class="bonus-card">
         <div class="icon-wrap"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 2-3 4"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
         <h3>Perguntas frequentes</h3>
-        <p>Abordadas em todos os módulos, reunidas para consulta rápida.</p>
-      </div>
-      <div class="bonus-card">
-        <div class="icon-wrap"><svg class="icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
-        <h3>Leis e resoluções</h3>
-        <p>Utilizadas nas aulas, para fundamentar sua análise com segurança.</p>
-      </div>
-      <div class="bonus-card">
-        <div class="icon-wrap"><svg class="icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg></div>
-        <h3>Modelos de petição inicial</h3>
-        <p>Relacionados aos temas do evento, prontos para adaptar aos seus casos.</p>
-      </div>
-      <div class="bonus-card">
-        <div class="icon-wrap"><svg class="icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-        <h3>Normativas da FEBRABAN</h3>
-        <p>Aplicáveis à análise dos casos práticos vistos nos módulos.</p>
+        <p>Durante a live, você poderá tirar suas dúvidas em tempo real e receber orientações práticas sobre os casos.</p>
       </div>
       <div class="bonus-card">
         <div class="icon-wrap"><svg class="icon" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="8" y="8" width="8" height="8" rx="1"/></svg></div>
@@ -702,7 +555,7 @@ src="https://www.facebook.com/tr?id=1202486781968282&ev=PageView&noscript=1"
         <li><svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Conteúdo completo do evento, conforme apresentado nesta página</li>
         <li><svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Aula ao vivo para acompanhamento e esclarecimento de dúvidas</li>
         <li><svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Acesso aos bônus exclusivos de apoio prático</li>
-        <li><svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Grupo exclusivo de participantes, para troca de experiências e orientações</li>
+        <li><svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Grupo exclusivo de participantes</li>
       </ul>
       <div class="price-block">
         <div class="price-label">Investimento</div>
@@ -733,16 +586,8 @@ src="https://www.facebook.com/tr?id=1202486781968282&ev=PageView&noscript=1"
         <div class="faq-body"><p>Sim. Você aprenderá a identificar irregularidades, padrões bancários indevidos e fraudes recorrentes, incluindo a chamada fraude dos excluídos, além de compreender como essas inconsistências aparecem nos extratos de empréstimos consignados.</p></div>
       </details>
       <details class="faq-item">
-        <summary>As normas do Banco Central e da FEBRABAN são realmente aplicadas na prática?<svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></summary>
-        <div class="faq-body"><p>Sim. O evento mostra como essas normas impactam diretamente os extratos dos beneficiários do INSS, indo além do CDC. Você aprenderá a utilizar essas regras como fundamento técnico para análise e atuação jurídica.</p></div>
-      </details>
-      <details class="faq-item">
-        <summary>Os materiais bônus podem ser usados no dia a dia da advocacia?<svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></summary>
-        <div class="faq-body"><p>Com certeza. Os bônus foram criados como ferramentas práticas de trabalho, incluindo modelos de petição, planilhas em Excel, documentos espelho, normativas e perguntas frequentes, para facilitar a análise, organização e tomada de decisão nos casos reais.</p></div>
-      </details>
-      <details class="faq-item">
         <summary>Terei suporte para tirar dúvidas durante o evento?<svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></summary>
-        <div class="faq-body"><p>Sim. Haverá aula ao vivo para esclarecimento de dúvidas, além de grupo exclusivo de participantes, onde você poderá trocar experiências, receber orientações e aprofundar o aprendizado com outros advogados.</p></div>
+        <div class="faq-body"><p>Sim. Haverá aula ao vivo para esclarecimento de dúvidas, e aprofundar o aprendizado com outros advogados.</p></div>
       </details>
       <details class="faq-item">
         <summary>Esse evento realmente pode abrir uma nova frente de atuação na advocacia?<svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></summary>
